@@ -78,6 +78,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
 }
 .logo:hover { text-decoration: none; }
 .logo-text { letter-spacing: -0.01em; }
+.logo-dot { color: #e53935; }
 #navLinks {
   display: flex;
   align-items: center;
