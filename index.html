@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glenn Tangalin — Web Developer & Technical Support Specialist</title>
+<meta name="description" content="Web Developer and Technical Support Specialist with 6+ years of experience in WordPress, PHP, and MySQL.">
+<link rel="icon" type="image/png" href="assets/elev8-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="#" class="logo">
+      <img src="assets/elev8-icon.png" alt="Elev8 Technologies" width="32" height="32">
+      <span class="logo-text">Glenn Tangalin</span>
+    </a>
+    <nav id="navLinks">
+      <a href="#about">About</a>
+      <a href="#venture">Elev8</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-pattern" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
+    <circle cx="120" cy="120" r="3" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="220" cy="80" r="3" fill="rgba(255,255,255,0.25)"/>
+    <circle cx="1300" cy="140" r="3" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="1200" cy="240" r="3" fill="rgba(255,255,255,0.2)"/>
+    <circle cx="180" cy="420" r="3" fill="rgba(255,255,255,0.25)"/>
+    <circle cx="1340" cy="440" r="3" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="80" cy="280" r="3" fill="rgba(255,255,255,0.2)"/>
+    <circle cx="1100" cy="80" r="3" fill="rgba(255,255,255,0.25)"/>
+    <rect x="60" y="160" width="34" height="34" rx="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" transform="rotate(18 77 177)"/>
+    <rect x="1290" y="340" width="44" height="44" rx="10" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" transform="rotate(-12 1312 362)"/>
+    <circle cx="150" cy="500" r="22" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+    <circle cx="1260" cy="60" r="16" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+  </svg>
+  <div class="container hero-inner">
+    <div class="avatar reveal">
+      <img src="assets/glenn-photo.jpg" alt="Glenn Tangalin">
+    </div>
+    <p class="eyebrow reveal">Web Developer &amp; Technical Support Specialist</p>
+    <h1 class="reveal">Glenn Tangalin</h1>
+    <p class="tagline reveal">
+      I build WordPress plugins, solve complex technical problems, and help teams and
+      customers ship reliable solutions.
+    </p>
+    <div class="hero-links reveal">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-outline" href="assets/Glenn-Tangalin-Resume.pdf" target="_blank">Download Résumé</a>
+    </div>
+    <div class="hero-social reveal">
+      <a href="https://www.linkedin.com/in/glenn-tangalin-b767b5227/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/mcglenn07" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.05 3.29 9.33 7.86 10.84.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12.02C23.5 5.73 18.27.5 12 .5z"/></svg>
+      </a>
+      <a href="mailto:mcglenntangalin07@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M2 4h20c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.01L12 13 22 6.01V6H2zm0 2.5V18h20V8.5l-10 7-10-7z"/></svg>
+      </a>
+      <a href="tel:+639177790394" aria-label="Phone">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+      </a>
+    </div>
+  </div>
+  <svg class="hero-divider" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40 C 240 90, 480 0, 720 40 C 960 80, 1200 0, 1440 40 L1440 80 L0 80 Z" fill="var(--bg)"/></svg>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <p class="eyebrow reveal">About</p>
+    <h2 class="reveal">A technical mind, sharpened by support and law</h2>
+    <p class="lead reveal">
+      Web Developer and Technical Support Specialist with 6+ years of experience working with
+      WordPress-based products and supporting customers worldwide. Skilled in WordPress, PHP,
+      MySQL, website troubleshooting, and plugin integration. Experienced in investigating
+      complex technical issues, resolving plugin conflicts, developing custom solutions, and
+      collaborating with engineering teams to deliver high-quality, reliable solutions. Currently
+      pursuing a Juris Doctor, bringing a disciplined, evidence-based approach to every
+      investigation.
+    </p>
+    <div class="stats reveal">
+      <div class="stat">
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Companies Supported</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">94.61</span>
+        <span class="stat-label">GWA, Magna Cum Laude</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="venture" class="section venture">
+  <div class="container">
+    <div class="venture-card reveal">
+      <p class="eyebrow">Building</p>
+      <img src="assets/elev8-wordmark.png" alt="Elev8 Technologies" class="venture-wordmark">
+      <h2 class="sr-only">Elev8 Technologies</h2>
+      <p class="lead">
+        Alongside client work, I'm building Elev8 Technologies — a venture focused on turning
+        practical software like Barangay Cashbook into real, contracted solutions for local
+        government units. Whether you're looking to hire Elev8 for a project or bring me on
+        directly, I'm open to the conversation.
+      </p>
+      <div class="venture-tags">
+        <span>Founded 2026</span>
+        <span>GovTech &amp; Civic Software</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section alt">
+  <div class="container">
+    <p class="eyebrow reveal">Work</p>
+    <h2 class="reveal">Selected Projects</h2>
+    <div class="projects-grid">
+
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 15 L15 9"/>
+            <path d="M11 6 L13 4a4 4 0 0 1 6 6l-2 2"/>
+            <path d="M13 18 L11 20a4 4 0 0 1-6-6l2-2"/>
+          </svg>
+        </div>
+        <h3>404 &amp; Broken Link Logger</h3>
+        <p class="card-meta">WordPress Plugin</p>
+        <p>
+          Logs every 404 hit on a site and lets an admin redirect any broken URL to a working
+          one in one click. Built with an MVC-style architecture (bootstrap class wiring up DB,
+          Settings, Logger, Redirector, Cron, and Admin classes), salted SHA-256 IP hashing for
+          privacy, open-redirect protection, CSV export, and full translation-readiness with a
+          generated .pot file. CI pipeline runs PHP lint, smoke tests, and WPCS across PHP 7.4–8.3.
+        </p>
+        <div class="card-tags">
+          <span>PHP</span><span>MySQL</span><span>WordPress</span><span>GitHub Actions</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/mcglenn07/broken-link-logger" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            <path d="M9 8h7M9 12h5"/>
+          </svg>
+        </div>
+        <h3>Barangay Cashbook</h3>
+        <p class="card-meta">Web Application</p>
+        <p>
+          A role-based web app that digitizes the official 4-fund ledger system used by
+          Philippine barangay treasurers — Local Treasury, Bank, Cash Advance, and Petty Cash —
+          with automatic period-to-period balance carry-forward and PDF export matching official
+          layouts. Lightweight, with no external JS dependencies, server-side role-based access
+          control (treasurer vs. captain), voided transaction tracking, and a two-signature
+          approval workflow.
+        </p>
+        <div class="card-tags">
+          <span>Flask</span><span>Jinja2</span><span>SQLite</span><span>ReportLab</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/mcglenn07/barangay-cashbook" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Career</p>
+    <h2 class="reveal">Experience</h2>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="job-header">
+            <h3>Technical Support Specialist, Gravity Wiz</h3>
+            <span class="job-date">Dec 2024 – Jun 2026</span>
+          </div>
+          <ul>
+            <li>Resolved complex WordPress, PHP, and Gravity Forms issues for customers through remote technical support.</li>
+            <li>Investigated plugin conflicts, hosting environments, server-related issues, and caching-related issues to identify root causes.</li>
+            <li>Collaborated closely with developers to reproduce bugs, document findings, and validate fixes.</li>
+            <li>Authored customer-facing documentation and internal knowledge base articles.</li>
+            <li>Managed high-volume support queues while maintaining strong customer satisfaction.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="job-header">
+            <h3>Project Manager, Gravity PDF</h3>
+            <span class="job-date">Jul 2019 – Dec 2024</span>
+          </div>
+          <ul>
+            <li>Managed client projects from requirements gathering through implementation and delivery.</li>
+            <li>Provided advanced technical support for WordPress and Gravity Forms customers worldwide.</li>
+            <li>Coordinated with developers, designers, and customers to deliver custom PDF solutions.</li>
+            <li>Diagnosed and resolved complex plugin and PDF-generation issues.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section alt">
+  <div class="container">
+    <p class="eyebrow reveal">Toolbox</p>
+    <h2 class="reveal">Skills</h2>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <h4>Web Development</h4>
+        <ul class="tags">
+          <li>WordPress</li><li>PHP</li><li>HTML5 &amp; CSS3</li><li>JavaScript</li><li>MySQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>CMS &amp; Platforms</h4>
+        <ul class="tags">
+          <li>WordPress</li><li>Gravity Forms</li><li>Unbounce</li><li>GitHub</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Integrations</h4>
+        <ul class="tags">
+          <li>API Integrations</li><li>Payment Gateways</li><li>SaaS Support</li><li>DNS Fundamentals</li><li>Caching Concepts</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Tools &amp; Automation</h4>
+        <ul class="tags">
+          <li>Claude Code</li><li>Shopify <span class="badge">Basic</span></li><li>n8n <span class="badge">Learning</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Professional</h4>
+        <ul class="tags">
+          <li>Technical Documentation</li><li>Knowledge Base Management</li><li>Customer Success</li><li>Remote Collaboration</li><li>Project Management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Reputation</p>
+    <h2 class="reveal">What People Say</h2>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial testimonial-featured">
+        <p>“Glenn is one of those rare people you can count on completely. He's professional,
+        dependable, thoughtful, and takes genuine ownership of his work. One of his greatest
+        strengths is his ability to execute while thinking critically — he never operates on
+        assumptions, and that attention to detail consistently leads to better outcomes. The
+        truth is, I wish we could keep him. Any team that hires Glenn will gain a highly capable,
+        reliable teammate who genuinely cares about the quality of his work.”</p>
+        <div class="testimonial-author">
+          <span class="author-name">David Smith</span>
+          <span class="author-role">CEO, Gravity Wiz</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>“His technical skills were excellent, but what really set him apart was how he
+        paired that with genuine care and compassion for customers, who consistently came away
+        happy. He was the kind of guy everyone wanted to work with — any team will be lucky to
+        have him.”</p>
+        <div class="testimonial-author">
+          <span class="author-name">Matt Andrews</span>
+          <span class="author-role">Web &amp; Business Enthusiast, Gravity Wiz</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>“Glenn consistently demonstrated a strong work ethic, excellent problem-solving
+        skills, and a genuine commitment to helping both customers and teammates succeed. He
+        contributes positively to team culture and can be trusted to deliver high-quality work.
+        Any company would be fortunate to have Glenn on their team.”</p>
+        <div class="testimonial-author">
+          <span class="author-name">Samuel Bassah</span>
+          <span class="author-role">Web Developer &amp; Support Engineer, Gravity Wiz (managed Glenn directly)</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>“He was always at the top of the class and exhibited excellence with whatever
+        subject we were learning. Glenn's perseverance and focus, paired with his intellect and
+        curiosity, let him overcome adversity without struggle. He's reliable and would serve as
+        an asset to any team he's a part of.”</p>
+        <div class="testimonial-author">
+          <span class="author-name">Bijan Natividad</span>
+          <span class="author-role">Frontend Developer, TEG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section alt">
+  <div class="container contact">
+    <p class="eyebrow reveal">Let's Talk</p>
+    <h2 class="reveal">Get in Touch</h2>
+    <p class="lead reveal">Open to web development and technical support opportunities.</p>
+    <div class="contact-links reveal">
+      <a class="btn btn-primary" href="mailto:mcglenntangalin07@gmail.com">mcglenntangalin07@gmail.com</a>
+      <a class="btn btn-outline" href="tel:+639177790394">+63 917 779 0394</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>&copy; <span id="year"></span> Glenn Tangalin</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/glenn-tangalin-b767b5227/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/mcglenn07" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

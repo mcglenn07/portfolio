@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo *)",
+      "WebFetch(domain:github.com)",
+      "Bash(brew --version)",
+      "Bash(git config *)",
+      "Read(//Users/mcglenntangalin/**)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(ls -la ~/.ssh/ 2>&1; ssh-keyscan github.com >> ~/.ssh/known_hosts 2>&1; ssh -T git@github.com 2>&1)"
+    ]
+  }
+}
