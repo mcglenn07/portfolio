@@ -44,6 +44,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
 }
 
 .lead { font-size: 18px; color: var(--muted); max-width: 680px; }
+#about .lead { max-width: none; }
 
 /* Reveal animation */
 .reveal {
