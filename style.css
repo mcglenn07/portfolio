@@ -205,11 +205,16 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
 .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
 /* Projects */
+.project-group-title {
+  font-size: 20px;
+  margin: 40px 0 0;
+}
+.project-group-title:first-of-type { margin-top: 8px; }
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
-  margin-top: 36px;
+  margin-top: 20px;
 }
 .card {
   background: #fff;
