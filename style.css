@@ -210,6 +210,17 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
   margin: 40px 0 0;
 }
 .project-group-title:first-of-type { margin-top: 8px; }
+.project-subgroup-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 32px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
