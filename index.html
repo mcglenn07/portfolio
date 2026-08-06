@@ -144,6 +144,38 @@
         </div>
       </article>
 
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18"/>
+            <path d="M5 7h14"/>
+            <path d="M5 7l-3 6a3 3 0 0 0 6 0z"/>
+            <path d="M19 7l-3 6a3 3 0 0 0 6 0z"/>
+            <path d="M9 21h6"/>
+          </svg>
+        </div>
+        <h3>Doktrina</h3>
+        <p class="card-meta">AI Web App</p>
+        <p>
+          Generates a structured legal case digest — Title, Facts, Issue, Ruling, Doctrine —
+          from a Philippine Supreme Court case URL, pulled from the PH SC E-Library, LawPhil,
+          or Chan Robles. A custom scraper isolates just the case body, verified against real
+          markup across all three sources to strip footnotes and citations before they reach
+          the model, and works around a broken SSL certificate chain on the government's own
+          e-library domain. An optional focus-topic field narrows the digest to a single legal
+          subject (e.g. Labor Law), and the system prompt is tuned to quote the Court's own
+          language for key legal tests and preserve named, multi-part doctrines — like a
+          "two-fold due process" test — instead of flattening them into generic prose.
+        </p>
+        <div class="card-tags">
+          <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>BeautifulSoup</span>
+        </div>
+        <div class="card-links">
+          <a href="https://doktrina.onrender.com" target="_blank" rel="noopener">Try it live →</a>
+          <a href="https://github.com/mcglenn07/doktrina" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
     </div>
 
     <h3 class="project-group-title reveal">WordPress Plugins</h3>
