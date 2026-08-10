@@ -265,6 +265,28 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
 .card-links { display: flex; gap: 16px; flex-wrap: wrap; }
 .card-links a { font-weight: 600; font-size: 14px; }
 
+.card-extra { display: none; }
+.projects-grid.grid-expanded .card-extra { display: block; }
+
+.show-more-wrap { display: flex; justify-content: center; margin-top: 20px; }
+.show-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.show-more-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(29,78,216,0.12); }
+.show-more-btn svg { transition: transform 0.2s ease; }
+.show-more-btn.expanded svg { transform: rotate(180deg); }
+
 /* Timeline */
 .timeline { margin-top: 36px; position: relative; }
 .timeline-item {

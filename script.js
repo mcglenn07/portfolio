@@ -24,3 +24,21 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 revealEls.forEach((el) => observer.observe(el));
+
+// Show more / show less for collapsed project subsections
+document.querySelectorAll(".show-more-btn").forEach((btn) => {
+  const grid = document.getElementById(btn.dataset.target);
+  if (!grid) return;
+  const extraCards = grid.querySelectorAll(".card-extra");
+  const label = btn.querySelector(".show-more-label");
+  label.textContent = `Show ${extraCards.length} more`;
+
+  btn.addEventListener("click", () => {
+    const expanded = grid.classList.toggle("grid-expanded");
+    btn.classList.toggle("expanded", expanded);
+    label.textContent = expanded ? "Show less" : `Show ${extraCards.length} more`;
+    if (expanded) {
+      extraCards.forEach((card) => card.classList.add("in-view"));
+    }
+  });
+});

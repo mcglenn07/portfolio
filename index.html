@@ -200,10 +200,39 @@
         </div>
       </article>
 
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 2 11 13"/>
+            <path d="M22 2 15 22 11 13 2 9 22 2z"/>
+          </svg>
+        </div>
+        <h3>Lipad AI</h3>
+        <p class="card-meta">AI Web App</p>
+        <p>
+          An airline chat assistant that resolves flight-price questions through OpenAI
+          function calling wired to a real third-party API — Duffel's Flights API — instead
+          of a hardcoded price table. The model converts city names to IATA airport codes on
+          its own, then a tool-calling loop that can chain multiple calls per turn hits
+          Duffel's live offer-search endpoint for pricing. It runs against Duffel's sandbox
+          environment by design, so the assistant proactively discloses in its own replies
+          that prices are simulated, reinforced by an on-page banner rather than left
+          implicit. A lightweight per-visitor rate limiter guards the OpenAI and Duffel API
+          keys from being drained on this public demo.
+        </p>
+        <div class="card-tags">
+          <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>Duffel API</span>
+        </div>
+        <div class="card-links">
+          <a href="https://lipad-ai.onrender.com" target="_blank" rel="noopener">Try it live →</a>
+          <a href="https://github.com/mcglenn07/lipad-ai" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
     </div>
 
     <h3 class="project-group-title reveal">WordPress Plugins</h3>
-    <div class="projects-grid">
+    <div class="projects-grid" id="wpPluginsGrid">
 
       <article class="card reveal">
         <div class="card-icon">
@@ -253,7 +282,7 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card reveal card-extra">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 6h18"/>
@@ -277,7 +306,7 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card reveal card-extra">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 3v18h18"/>
@@ -300,7 +329,7 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card reveal card-extra">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
@@ -324,9 +353,15 @@
       </article>
 
     </div>
+    <div class="show-more-wrap">
+      <button class="show-more-btn" type="button" data-target="wpPluginsGrid">
+        <span class="show-more-label">Show more</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
 
     <h3 class="project-group-title reveal">Other Projects</h3>
-    <div class="projects-grid">
+    <div class="projects-grid" id="otherProjectsGrid">
 
       <article class="card reveal">
         <div class="card-icon">
@@ -377,7 +412,7 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card reveal card-extra">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -402,9 +437,15 @@
       </article>
 
     </div>
+    <div class="show-more-wrap">
+      <button class="show-more-btn" type="button" data-target="otherProjectsGrid">
+        <span class="show-more-label">Show more</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
 
     <h4 class="project-subgroup-title reveal">🎈 For My Kids</h4>
-    <div class="projects-grid">
+    <div class="projects-grid" id="kidsGrid">
 
       <article class="card reveal">
         <div class="card-icon">
@@ -456,7 +497,7 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card reveal card-extra">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="12" cy="9" rx="5" ry="6"/>
@@ -483,7 +524,7 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card reveal card-extra">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
@@ -508,6 +549,12 @@
         </div>
       </article>
 
+    </div>
+    <div class="show-more-wrap">
+      <button class="show-more-btn" type="button" data-target="kidsGrid">
+        <span class="show-more-label">Show more</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
     </div>
   </div>
 </section>
