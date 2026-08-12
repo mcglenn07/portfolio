@@ -1,5 +1,43 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Typewriter effect for hero terminal tagline
+const heroTagline = document.getElementById("heroTagline");
+if (heroTagline) {
+  const fullText = heroTagline.textContent.trim();
+  heroTagline.textContent = "";
+  heroTagline.classList.add("typing-cursor");
+  let i = 0;
+  const type = () => {
+    if (i <= fullText.length) {
+      heroTagline.textContent = fullText.slice(0, i);
+      i++;
+      setTimeout(type, 14);
+    } else {
+      heroTagline.classList.remove("typing-cursor");
+    }
+  };
+  setTimeout(type, 500);
+}
+
+// Highlight active nav link based on scroll position
+const sections = document.querySelectorAll("section[id]");
+const navAnchors = document.querySelectorAll("#navLinks a[href^='#']");
+if (sections.length && navAnchors.length) {
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach((a) => {
+            a.classList.toggle("active", a.getAttribute("href") === `#${entry.target.id}`);
+          });
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px" }
+  );
+  sections.forEach((sec) => navObserver.observe(sec));
+}
+
 // Mobile nav toggle
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
