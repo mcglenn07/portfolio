@@ -6,6 +6,18 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "5500"],
       "port": 5500
+    },
+    {
+      "name": "balloon-math",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5501", "--directory", "/Users/mcglenntangalin/Documents/projects/balloon-math"],
+      "port": 5501
+    },
+    {
+      "name": "abc-balloons",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5502", "--directory", "/Users/mcglenntangalin/Documents/projects/abc-balloons"],
+      "port": 5502
     }
   ]
 }

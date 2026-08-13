@@ -208,17 +208,6 @@ code, .mono { font-family: var(--mono); }
 }
 .hero-pattern circle, .hero-pattern rect { stroke: rgba(34,211,238,0.35); }
 .hero-pattern circle[fill] { fill: rgba(34,211,238,0.4); }
-.hero::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 220px;
-  background: linear-gradient(to bottom, transparent, var(--bg));
-  z-index: 0;
-  pointer-events: none;
-}
 
 .terminal-window {
   max-width: 620px;
@@ -280,12 +269,6 @@ code, .mono { font-family: var(--mono); }
   -webkit-text-fill-color: transparent;
 }
 .hero .tagline { font-family: var(--mono); font-size: 15px; line-height: 1.8; color: var(--muted); margin-bottom: 32px; max-width: 560px; }
-.hero .tagline.typing-cursor::after {
-  content: '▌';
-  color: var(--green);
-  animation: blink 0.9s step-end infinite;
-  margin-left: 2px;
-}
 .hero-links { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
 .hero-social { display: flex; gap: 18px; justify-content: center; }
 .hero-social a { color: var(--muted); }
@@ -622,4 +605,5 @@ code, .mono { font-family: var(--mono); }
   .hero h1 { font-size: 32px; }
   .terminal-body { padding: 24px 20px 28px; }
   .stats { gap: 28px; }
+  .job-date { white-space: normal; text-align: right; }
 }
