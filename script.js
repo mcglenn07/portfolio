@@ -1,5 +1,51 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Logo collapses down to initials as you scroll, scrubbed live like Anthropic's
+// nav wordmark (theirs morphs vector letterforms via a scroll-linked Lottie;
+// this collapses each non-initial letter's width/opacity with scroll position).
+const logoText = document.querySelector(".logo-text");
+if (logoText) {
+  const LOGO_FULL = "MC GLENN TANGALIN";
+  const LOGO_MORPH_DISTANCE = 220; // px of scroll over which the collapse completes
+
+  logoText.textContent = "";
+  logoText.classList.add("logo-scramble");
+  logoText.setAttribute("aria-hidden", "true");
+
+  LOGO_FULL.split(" ").forEach((word, wi, words) => {
+    [...word].forEach((ch, ci) => {
+      const span = document.createElement("span");
+      span.textContent = ch;
+      span.className = "logo-char" + (ci === 0 ? " logo-keep" : "");
+      logoText.appendChild(span);
+    });
+    if (wi < words.length - 1) {
+      const space = document.createElement("span");
+      space.textContent = " ";
+      space.className = "logo-char logo-space";
+      logoText.appendChild(space);
+    }
+  });
+
+  let ticking = false;
+  const updateLogo = () => {
+    const progress = Math.min(1, Math.max(0, window.scrollY / LOGO_MORPH_DISTANCE));
+    logoText.style.setProperty("--p", progress.toFixed(3));
+    ticking = false;
+  };
+  updateLogo();
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(updateLogo);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+}
+
 // Highlight active nav link based on scroll position
 const sections = document.querySelectorAll("section[id]");
 const navAnchors = document.querySelectorAll("#navLinks a[href^='#']");

@@ -126,7 +126,25 @@ code, .mono { font-family: var(--mono); }
   color: #fff;
 }
 .logo:hover { text-decoration: none; }
-.logo-text { letter-spacing: -0.01em; }
+.logo-text {
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.logo-text.logo-scramble { display: inline-flex; }
+.logo-char {
+  display: inline-block;
+  overflow: hidden;
+  white-space: pre;
+  width: calc((1 - var(--p, 0)) * 1.05ch);
+  opacity: calc(1 - var(--p, 0));
+  transition: width 0.08s linear, opacity 0.08s linear;
+}
+.logo-char.logo-space { width: calc((1 - var(--p, 0)) * 0.55ch); }
+.logo-char.logo-keep {
+  width: auto;
+  opacity: 1;
+  transition: none;
+}
 .logo-text::after {
   content: '_';
   color: var(--green);
@@ -134,6 +152,10 @@ code, .mono { font-family: var(--mono); }
 }
 .logo-dot { color: var(--cyan); }
 @keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 480px) {
+  .logo-text { font-size: 13px; }
+}
 
 #navLinks {
   display: flex;
