@@ -289,13 +289,11 @@
         <p class="card-meta">WordPress Plugin</p>
         <p>
           A Gravity Forms add-on that autofills a job application form from an uploaded
-          resume, live, before submission — the applicant reviews and edits before hitting
-          submit. Extracts resume text (PDF/DOCX), sends it to OpenAI's Structured Outputs
-          API against a strict JSON schema (missing data is always null, never guessed), and
-          maps the result onto whichever fields the form owner configured. The system prompt
-          explicitly treats the resume as untrusted, adversary-controlled input to guard
-          against prompt injection, and the API key is encrypted at rest with libsodium.
-          Consent is required and disclosed before any file leaves the browser.
+          resume, live, before submission. The applicant reviews and edits before hitting
+          submit. It extracts resume text (PDF/DOCX), sends it to OpenAI's Structured
+          Outputs API against a strict JSON schema, and maps the result onto whichever
+          fields the form owner configured. Consent is required and disclosed before any
+          file leaves the browser.
         </p>
         <div class="card-tags">
           <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
