@@ -335,7 +335,7 @@ code, .mono { font-family: var(--mono); }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 34px 28px 28px;
+  padding: 46px 28px 28px;
   transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out;
   position: relative;
   overflow: hidden;
