@@ -51,6 +51,27 @@ body::before {
 
 ::selection { background: rgba(34,211,238,0.25); color: #fff; }
 
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 12px;
+  z-index: 200;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+  transition: top 0.12s ease-out;
+}
+.skip-link:focus {
+  top: 12px;
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 999px; }
@@ -90,11 +111,7 @@ code, .mono { font-family: var(--mono); }
 }
 
 .lead { font-size: 18px; color: var(--muted); max-width: 680px; }
-#about .lead { max-width: none; }
-
-/* Content renders immediately; .reveal is kept as a no-op hook for any
-   future JS but no longer hides/delays content on scroll. */
-.reveal { opacity: 1; transform: none; }
+#about .lead { max-width: 70ch; }
 
 /* Header */
 .site-header {
@@ -196,7 +213,11 @@ code, .mono { font-family: var(--mono); }
   height: 2px;
   background: var(--text);
   border-radius: 2px;
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
 }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Hero */
 .hero {
@@ -265,7 +286,7 @@ code, .mono { font-family: var(--mono); }
   display: block;
 }
 .hero-divider { display: none; }
-.hero .eyebrow { color: var(--green); justify-content: center; }
+.hero .eyebrow { color: var(--green); justify-content: center; text-transform: none; letter-spacing: normal; }
 .hero .eyebrow::before { content: '$'; color: var(--muted); }
 .hero h1 {
   font-size: 42px;
@@ -377,7 +398,7 @@ code, .mono { font-family: var(--mono); }
 .section.alt .card-icon { background: rgba(34,211,238,0.08); }
 .card h3 { margin: 0 0 4px; font-size: 18px; color: #fff; }
 .card-meta { font-family: var(--mono); color: var(--purple); font-size: 12px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
-.card p:not(.card-meta) { color: var(--muted); font-size: 14.5px; }
+.card p:not(.card-meta) { color: var(--muted); font-size: 14.5px; max-width: 62ch; }
 .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
 .card-tags span {
   font-family: var(--mono);
@@ -394,7 +415,7 @@ code, .mono { font-family: var(--mono); }
 .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .card-badge {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -495,7 +516,7 @@ code, .mono { font-family: var(--mono); }
 }
 .featured-head h3 { margin: 0; font-size: 19px; color: #fff; }
 .featured-card .card-meta { margin: 6px 0 10px; }
-.featured-card p:not(.card-meta) { color: var(--muted); font-size: 14.5px; max-width: 640px; }
+.featured-card p:not(.card-meta) { color: var(--muted); font-size: 14.5px; max-width: 68ch; }
 .featured-card .card-tags { margin: 14px 0 0; }
 .featured-links {
   grid-column: 3;
@@ -595,6 +616,26 @@ code, .mono { font-family: var(--mono); }
   transition: border-color 0.12s ease-out, color 0.12s ease-out;
 }
 .tags li:hover { border-color: var(--cyan); color: var(--cyan-bright); }
+.tags-toggle {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--cyan);
+  background: transparent;
+  border: 1px dashed var(--border-light);
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: border-color 0.12s ease-out, color 0.12s ease-out;
+}
+.tags-toggle:hover { border-color: var(--cyan); color: var(--cyan-bright); }
+.cert-tags li {
+  border-color: rgba(251,191,36,0.35);
+  background: rgba(251,191,36,0.06);
+  color: var(--amber);
+}
+.cert-tags li:hover { border-color: var(--amber); color: var(--amber); }
 .badge {
   background: var(--amber);
   color: #06111f;
