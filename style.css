@@ -169,15 +169,15 @@ code, .mono { font-family: var(--mono); }
 #navLinks a:not(.nav-cta)::before { content: '';}
 #navLinks a:hover { color: var(--cyan-bright); text-decoration: none; }
 #navLinks a.active { color: var(--cyan); }
-.nav-cta {
+#navLinks a.nav-cta {
   background: transparent;
-  color: var(--cyan) !important;
+  color: var(--cyan);
   padding: 7px 16px;
   border-radius: 6px;
   border: 1px solid var(--cyan);
   transition: background 0.12s ease-out, box-shadow 0.12s ease-out, color 0.12s ease-out;
 }
-.nav-cta:hover {
+#navLinks a.nav-cta:hover {
   background: rgba(34,211,238,0.1);
   box-shadow: 0 0 16px rgba(34,211,238,0.35);
 }
