@@ -448,8 +448,27 @@ code, .mono { font-family: var(--mono); }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 26px 28px;
+  padding: 34px 28px 26px;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out;
+}
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 30px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border);
+}
+.featured-card::after {
+  content: '';
+  position: absolute;
+  top: 11px; left: 16px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 16px 0 0 var(--yellow), 32px 0 0 var(--dotgreen);
 }
 .featured-card:hover {
   transform: translateY(-3px);
