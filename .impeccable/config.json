@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-09-09T11:04:23.471Z",
+        "reason": "User confirmed: keeping the original dark hacker-terminal design; cyan/purple glow shadows are original, pre-existing incumbent styling, not new drift"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-09-09T11:04:23.485Z",
+        "reason": "User confirmed: keeping the original dark hacker-terminal design; cyan gradient hero h1 text is original, pre-existing incumbent styling, not new drift"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-09T11:04:23.497Z",
+        "reason": "User confirmed: keeping the original dark hacker-terminal design; cyan/purple glow shadows are original, pre-existing incumbent styling, not new drift"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-09T11:04:23.510Z",
+        "reason": "User confirmed: keeping the original dark hacker-terminal design; cyan gradient hero h1 text is original, pre-existing incumbent styling, not new drift"
+      },
+      {
+        "rule": "icon-tile-stack",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-09T11:04:23.522Z",
+        "reason": "Pre-existing original design (predates this session): project card icon-above-heading layout is the incumbent site's original structure"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "style.css"
+        ],
+        "createdAt": "2026-09-09T11:04:23.534Z",
+        "reason": "User confirmed: explicit instruction to leave the logo scroll-morph animation untouched (.logo-char width/opacity transition is the mechanism of that animation, pre-existing original code)"
+      }
+    ]
+  }
+}

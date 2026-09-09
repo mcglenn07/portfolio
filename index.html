@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#0a0e17">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,20 +36,6 @@
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <svg class="hero-pattern" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
-    <circle cx="120" cy="120" r="3" fill="rgba(255,255,255,0.3)"/>
-    <circle cx="220" cy="80" r="3" fill="rgba(255,255,255,0.25)"/>
-    <circle cx="1300" cy="140" r="3" fill="rgba(255,255,255,0.3)"/>
-    <circle cx="1200" cy="240" r="3" fill="rgba(255,255,255,0.2)"/>
-    <circle cx="180" cy="420" r="3" fill="rgba(255,255,255,0.25)"/>
-    <circle cx="1340" cy="440" r="3" fill="rgba(255,255,255,0.3)"/>
-    <circle cx="80" cy="280" r="3" fill="rgba(255,255,255,0.2)"/>
-    <circle cx="1100" cy="80" r="3" fill="rgba(255,255,255,0.25)"/>
-    <rect x="60" y="160" width="34" height="34" rx="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" transform="rotate(18 77 177)"/>
-    <rect x="1290" y="340" width="44" height="44" rx="10" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" transform="rotate(-12 1312 362)"/>
-    <circle cx="150" cy="500" r="22" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
-    <circle cx="1260" cy="60" r="16" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
-  </svg>
   <div class="container hero-inner">
     <div class="terminal-window reveal">
       <div class="terminal-titlebar">
@@ -58,7 +44,7 @@
       </div>
       <div class="terminal-body">
         <div class="avatar">
-          <img src="assets/glenn-photo.jpg" alt="Mc Glenn Tangalin">
+          <img src="assets/glenn-photo.jpg" alt="Mc Glenn Tangalin" width="92" height="92">
         </div>
         <p class="eyebrow">Software Engineer | AI Support Engineering</p>
         <h1>Mc Glenn Tangalin</h1>
@@ -93,12 +79,9 @@
     <p class="eyebrow reveal">About</p>
     <h2 class="reveal">Software Engineer with a support engineer's eye for detail — now building AI-assisted tooling</h2>
     <p class="lead reveal">
-      Software Support Engineer and Software Engineer with 7+ years of experience supporting
-      and developing software solutions, resolving complex production issues, and partnering
-      with engineering teams to deliver reliable software. Experienced in PHP, MySQL,
-      JavaScript, API integrations, root-cause analysis, customer support engineering, and
-      project delivery. Recognized for resolving issues for 1,000+ customers, maintaining a
-      90%+ customer satisfaction rating, and delivering 100+ custom software projects.
+      7+ years resolving production issues and shipping software as both a support engineer
+      and a developer — PHP, MySQL, JavaScript, API integrations, root-cause analysis. 1,000+
+      customers helped, 90%+ CSAT, 100+ projects delivered.
     </p>
     <div class="stats reveal">
       <div class="stat">
@@ -122,532 +105,573 @@
     <p class="eyebrow reveal">Work</p>
     <h2 class="reveal">Selected Projects</h2>
 
-    <h3 class="project-group-title reveal">AI &amp; LLM Projects</h3>
-    <div class="projects-grid" id="aiProjectsGrid">
-
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12h4l3 8 4-16 3 8h4"/>
-          </svg>
-        </div>
-        <h3>WP Diagnostics MCP</h3>
-        <p class="card-meta">MCP Server</p>
-        <p>
-          An MCP server that gives an AI assistant direct diagnostic access to a live
-          WordPress site: plugin, PHP, and environment info, debug-log tailing, and a
-          guarded SELECT-only SQL query tool that rejects anything but a single read-only
-          statement. Two tools are purpose-built for Gravity Forms support work: pulling
-          recent entries flagged with error notes (notification, payment, and feed-addon
-          failures), and tailing any enabled add-on's own log file by name. Runs against a
-          real Local by Flywheel WordPress install through WP-CLI, working around Local's
-          non-standard PHP path and per-site MySQL socket rather than the system defaults.
-        </p>
-        <div class="card-tags">
-          <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/wp-diagnostics-mcp" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l1.6 4.3L18 9l-4.4 1.7L12 15l-1.6-4.3L6 9l4.4-1.7L12 3z"/>
-            <path d="M5 17l.8 2.2L8 20l-2.2.8L5 23l-.8-2.2L2 20l2.2-.8L5 17z"/>
-          </svg>
-        </div>
-        <h3>Brochure Maker</h3>
-        <p class="card-meta">AI Web App</p>
-        <p>
-          Generates a short marketing brochure for any company from just its name and website
-          URL. Scrapes the homepage, uses GPT to identify which links are actually relevant
-          (About, Careers, Company pages), scrapes those too, then streams the brochure back
-          live rather than waiting for the full response. Supports on-demand translation into
-          Filipino, French, Spanish, or Japanese; the translation call only fires if a
-          language is explicitly selected, so nothing is auto-translated or double-generated.
-        </p>
-        <div class="card-tags">
-          <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>BeautifulSoup</span>
-        </div>
-        <div class="card-links">
-          <a href="https://brochure-maker.onrender.com" target="_blank" rel="noopener">Try it live →</a>
-          <a href="https://github.com/mcglenn07/brochure-maker" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
-
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v18"/>
-            <path d="M5 7h14"/>
-            <path d="M5 7l-3 6a3 3 0 0 0 6 0z"/>
-            <path d="M19 7l-3 6a3 3 0 0 0 6 0z"/>
-            <path d="M9 21h6"/>
-          </svg>
-        </div>
-        <h3>Doktrina</h3>
-        <p class="card-meta">AI Web App</p>
-        <p>
-          Generates a structured legal case digest (Title, Facts, Issue, Ruling, Doctrine)
-          from a Philippine Supreme Court case URL, pulled from the PH SC E-Library, LawPhil,
-          or Chan Robles. A custom scraper strips footnotes and citations before they reach
-          the model and works around a broken SSL certificate chain on the government's own
-          e-library domain. An optional focus-topic field narrows the digest to a single
-          legal subject, and the system prompt is tuned to quote the Court's own language
-          and preserve named, multi-part doctrines like the "two-fold due process" test.
-        </p>
-        <div class="card-tags">
-          <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>BeautifulSoup</span>
-        </div>
-        <div class="card-links">
-          <a href="https://doktrina.onrender.com" target="_blank" rel="noopener">Try it live →</a>
-          <a href="https://github.com/mcglenn07/doktrina" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
-
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16v12H8l-4 4V4z"/>
-          </svg>
-        </div>
-        <h3>Batas AI</h3>
-        <p class="card-meta">AI Web App</p>
-        <p>
-          A Philippine-law-focused chatbot that grounds every answer in live web search
-          rather than the model's training data, specifically to avoid fabricating statute
-          provisions and case citations, a real failure mode for legal Q&amp;A. The system
-          prompt enforces a strict no-invented-citations rule, keeps scope to Philippine
-          law only, and appends a "not legal advice" disclaimer to every substantive answer.
-          Citation URLs returned by OpenAI's search tool are parsed out of the response's
-          annotation metadata and rendered as clickable sources beneath each streamed answer.
-        </p>
-        <div class="card-tags">
-          <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>LangChain</span>
-        </div>
-        <div class="card-links">
-          <a href="https://batas-ai-uya1.onrender.com/" target="_blank" rel="noopener">Try it live →</a>
-          <a href="https://github.com/mcglenn07/batas-ai" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
-
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2 11 13"/>
-            <path d="M22 2 15 22 11 13 2 9 22 2z"/>
-          </svg>
-        </div>
-        <h3>Lipad AI</h3>
-        <p class="card-meta">AI Web App</p>
-        <p>
-          An airline chat assistant that resolves flight-price questions through OpenAI
-          function calling wired to a real third-party API (Duffel's Flights API) instead
-          of a hardcoded price table. The model converts city names to IATA airport codes on
-          its own, then a tool-calling loop that can chain multiple calls per turn hits
-          Duffel's live offer-search endpoint for pricing. It runs against Duffel's sandbox
-          environment by design, so the assistant proactively discloses in its own replies
-          that prices are simulated, reinforced by an on-page banner rather than left
-          implicit. A lightweight per-visitor rate limiter guards the OpenAI and Duffel API
-          keys from being drained on this public demo.
-        </p>
-        <div class="card-tags">
-          <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>Duffel API</span>
-        </div>
-        <div class="card-links">
-          <a href="https://lipad-ai.onrender.com" target="_blank" rel="noopener">Try it live →</a>
-          <a href="https://github.com/mcglenn07/lipad-ai" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
-
-    </div>
-    <div class="show-more-wrap">
-      <button class="show-more-btn" type="button" data-target="aiProjectsGrid">
-        <span class="show-more-label">Show more</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
+    <div class="filter-bar reveal" id="projectFilterBar" role="tablist" aria-label="Filter projects by category">
+      <button class="filter-pill active" type="button" data-panel="featured">★ Featured</button>
+      <button class="filter-pill" type="button" data-panel="ai">AI &amp; LLM</button>
+      <button class="filter-pill" type="button" data-panel="wp">WordPress Plugins</button>
+      <button class="filter-pill" type="button" data-panel="other">Other Projects</button>
+      <button class="filter-pill" type="button" data-panel="kids">🎈 For My Kids</button>
     </div>
 
-    <h3 class="project-group-title reveal">WordPress Plugins</h3>
-    <div class="projects-grid" id="wpPluginsGrid">
+    <div class="filter-panel" data-panel="featured">
+      <div class="featured-grid">
 
-      <article class="card reveal">
-        <div class="card-head">
+        <article class="featured-card">
+          <div class="featured-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+          </div>
+          <div>
+            <div class="featured-head">
+              <h3>WP Diagnostics MCP</h3>
+            </div>
+            <p class="card-meta">MCP Server</p>
+            <p>
+              Gives an AI assistant direct diagnostic access to a live WordPress site: plugin/PHP
+              info, debug-log tailing, and a guarded SELECT-only SQL tool. Two tools are purpose-built
+              for Gravity Forms support: pulling error-flagged entries and tailing any add-on's log by name.
+            </p>
+            <div class="card-tags">
+              <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
+            </div>
+          </div>
+          <div class="featured-links">
+            <a href="https://github.com/mcglenn07/wp-diagnostics-mcp" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 12v6"/><path d="M9.5 14.5 12 12l2.5 2.5"/></svg>
+          </div>
+          <div>
+            <div class="featured-head">
+              <h3>Resume Autofill for Gravity Forms</h3>
+            </div>
+            <p class="card-meta">WordPress Plugin · AI/LLM</p>
+            <p>
+              A Gravity Forms add-on that autofills a job application form from an uploaded resume,
+              live, before submission — extracts resume text, sends it to OpenAI's Structured
+              Outputs API against a strict JSON schema, and maps it onto the form owner's fields.
+            </p>
+            <div class="card-tags">
+              <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
+            </div>
+          </div>
+          <div class="featured-links">
+            <a href="https://github.com/mcglenn07/gf-resume-autofill" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4V4z"/></svg>
+          </div>
+          <div>
+            <div class="featured-head">
+              <h3>Batas AI</h3>
+            </div>
+            <p class="card-meta">AI Web App</p>
+            <p>
+              A Philippine-law chatbot that grounds every answer in live web search instead of
+              training data, to avoid fabricated statutes and citations. Enforces a strict
+              no-invented-citations rule and renders real source links beneath each streamed answer.
+            </p>
+            <div class="card-tags">
+              <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>LangChain</span>
+            </div>
+          </div>
+          <div class="featured-links">
+            <a href="https://batas-ai-uya1.onrender.com/" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/batas-ai" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="filter-panel" data-panel="ai" hidden>
+      <div class="projects-grid">
+
+        <article class="card">
           <div class="card-icon">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
-              <path d="M14 3v5h5"/>
-              <path d="M12 12v6"/>
-              <path d="M9.5 14.5 12 12l2.5 2.5"/>
+              <path d="M3 12h4l3 8 4-16 3 8h4"/>
             </svg>
           </div>
-          <span class="card-badge">AI/LLM</span>
-        </div>
-        <h3>Resume Autofill for Gravity Forms</h3>
-        <p class="card-meta">WordPress Plugin</p>
-        <p>
-          A Gravity Forms add-on that autofills a job application form from an uploaded
-          resume, live, before submission. The applicant reviews and edits before hitting
-          submit. It extracts resume text (PDF/DOCX), sends it to OpenAI's Structured
-          Outputs API against a strict JSON schema, and maps the result onto whichever
-          fields the form owner configured. Consent is required and disclosed before any
-          file leaves the browser.
-        </p>
-        <div class="card-tags">
-          <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/gf-resume-autofill" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+          <h3>WP Diagnostics MCP</h3>
+          <p class="card-meta">MCP Server</p>
+          <p>
+            Gives an AI assistant direct diagnostic access to a live WordPress site: plugin/PHP
+            info, debug-log tailing, and a guarded SELECT-only SQL tool. Two tools are purpose-built
+            for Gravity Forms support: pulling error-flagged entries and tailing any add-on's log by name.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/wp-diagnostics-mcp" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2c3 4 6 7.5 6 11.5a6 6 0 0 1-12 0C6 9.5 9 6 12 2z"/>
-          </svg>
-        </div>
-        <h3>Wellness Reminder</h3>
-        <p class="card-meta">WordPress Plugin</p>
-        <p>
-          Displays a dismissible, customizable wellness reminder popup (stand up, drink
-          water, stretch, rest your eyes) at a configurable interval. Built with the
-          WordPress Settings API for secure option handling and an MVC-style structure
-          (bootstrap class, settings class, and view), with conditional asset loading so
-          nothing is enqueued unless the reminder is enabled.
-        </p>
-        <div class="card-tags">
-          <span>PHP</span><span>WordPress</span><span>Settings API</span><span>JavaScript</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/wellness-reminder" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l1.6 4.3L18 9l-4.4 1.7L12 15l-1.6-4.3L6 9l4.4-1.7L12 3z"/>
+              <path d="M5 17l.8 2.2L8 20l-2.2.8L5 23l-.8-2.2L2 20l2.2-.8L5 17z"/>
+            </svg>
+          </div>
+          <h3>Brochure Maker</h3>
+          <p class="card-meta">AI Web App</p>
+          <p>
+            Generates a short marketing brochure for any company from just its name and website
+            URL. Scrapes the homepage, uses GPT to identify which links are actually relevant
+            (About, Careers, Company pages), scrapes those too, then streams the brochure back
+            live rather than waiting for the full response. Supports on-demand translation into
+            Filipino, French, Spanish, or Japanese; the translation call only fires if a
+            language is explicitly selected, so nothing is auto-translated or double-generated.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>BeautifulSoup</span>
+          </div>
+          <div class="card-links">
+            <a href="https://brochure-maker.onrender.com" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/brochure-maker" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 15 L15 9"/>
-            <path d="M11 6 L13 4a4 4 0 0 1 6 6l-2 2"/>
-            <path d="M13 18 L11 20a4 4 0 0 1-6-6l2-2"/>
-          </svg>
-        </div>
-        <h3>404 &amp; Broken Link Logger</h3>
-        <p class="card-meta">WordPress Plugin</p>
-        <p>
-          Logs every 404 hit on a site and lets an admin redirect any broken URL to a working
-          one in one click. Built with an MVC-style architecture (bootstrap class wiring up DB,
-          Settings, Logger, Redirector, Cron, and Admin classes), salted SHA-256 IP hashing for
-          privacy, open-redirect protection, CSV export, and full translation-readiness with a
-          generated .pot file. CI pipeline runs PHP lint, smoke tests, and WPCS across PHP 7.4–8.3.
-        </p>
-        <div class="card-tags">
-          <span>PHP</span><span>MySQL</span><span>WordPress</span><span>GitHub Actions</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/broken-link-logger" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18"/>
+              <path d="M5 7h14"/>
+              <path d="M5 7l-3 6a3 3 0 0 0 6 0z"/>
+              <path d="M19 7l-3 6a3 3 0 0 0 6 0z"/>
+              <path d="M9 21h6"/>
+            </svg>
+          </div>
+          <h3>Doktrina</h3>
+          <p class="card-meta">AI Web App</p>
+          <p>
+            Generates a structured legal case digest (Title, Facts, Issue, Ruling, Doctrine) from a
+            Philippine Supreme Court case URL. A custom scraper strips footnotes and citations and
+            works around a broken SSL chain on the government's own e-library domain; the prompt is
+            tuned to quote the Court's own language and preserve named doctrines.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>BeautifulSoup</span>
+          </div>
+          <div class="card-links">
+            <a href="https://doktrina.onrender.com" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/doktrina" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 6h18"/>
-            <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6"/>
-            <path d="M16 11h3"/>
-          </svg>
-        </div>
-        <h3>Announcement Bar</h3>
-        <p class="card-meta">WordPress Plugin</p>
-        <p>
-          A lightweight plugin for displaying a customizable announcement bar with an optional
-          CTA button at the top of the site. Built with the WordPress Settings API for secure
-          option handling, sanitized hex color and URL inputs, escaped output, and an
-          MVC-style structure (bootstrap class, settings class, views, and helper functions).
-        </p>
-        <div class="card-tags">
-          <span>PHP</span><span>WordPress</span><span>Settings API</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/announcement-bar" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16v12H8l-4 4V4z"/>
+            </svg>
+          </div>
+          <h3>Batas AI</h3>
+          <p class="card-meta">AI Web App</p>
+          <p>
+            A Philippine-law chatbot that grounds every answer in live web search instead of
+            training data, to avoid fabricated statutes and citations. Enforces a strict
+            no-invented-citations rule and renders real source links beneath each streamed answer.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>LangChain</span>
+          </div>
+          <div class="card-links">
+            <a href="https://batas-ai-uya1.onrender.com/" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/batas-ai" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 3v18h18"/>
-            <path d="M7 15l3-3 3 3 5-6"/>
-          </svg>
-        </div>
-        <h3>GF Form Abandonment Tracker</h3>
-        <p class="card-meta">WordPress Plugin</p>
-        <p>
-          Tracks visitors who start filling out a Gravity Forms form but leave before
-          submitting, logging the last field they touched. Adds an Abandonment tab to each
-          form's settings showing total drop-offs and a per-field breakdown, so site owners
-          can spot exactly where a form loses people.
-        </p>
-        <div class="card-tags">
-          <span>PHP</span><span>WordPress</span><span>Gravity Forms</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/gf-form-abandonment-tracker" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2 11 13"/>
+              <path d="M22 2 15 22 11 13 2 9 22 2z"/>
+            </svg>
+          </div>
+          <h3>Lipad AI</h3>
+          <p class="card-meta">AI Web App</p>
+          <p>
+            An airline chat assistant that resolves flight-price questions through OpenAI function
+            calling wired to Duffel's Flights API instead of a hardcoded price table. Runs against
+            Duffel's sandbox, so the assistant discloses simulated pricing; a per-visitor rate
+            limiter guards the API keys on this public demo.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>Duffel API</span>
+          </div>
+          <div class="card-links">
+            <a href="https://lipad-ai.onrender.com" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/lipad-ai" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 7v5l3.5 2"/>
-          </svg>
-        </div>
-        <h3>Reading Time Estimator</h3>
-        <p class="card-meta">WordPress Plugin</p>
-        <p>
-          Automatically adds an estimated reading time (e.g. "5 min read") to posts based on
-          word count. Settings page for reading speed, display position, custom label format,
-          and which post types it applies to, plus a <code>[reading_time]</code> shortcode for
-          manual placement.
-        </p>
-        <div class="card-tags">
-          <span>PHP</span><span>WordPress</span><span>Settings API</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/reading-time-estimator" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
-
-    </div>
-    <div class="show-more-wrap">
-      <button class="show-more-btn" type="button" data-target="wpPluginsGrid">
-        <span class="show-more-label">Show more</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
+      </div>
     </div>
 
-    <h3 class="project-group-title reveal">Other Projects</h3>
-    <div class="projects-grid" id="otherProjectsGrid">
+    <div class="filter-panel" data-panel="wp" hidden>
+      <div class="projects-grid">
 
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            <path d="M9 8h7M9 12h5"/>
-          </svg>
-        </div>
-        <h3>Barangay Cashbook</h3>
-        <p class="card-meta">Web Application</p>
-        <p>
-          A role-based web app that digitizes the official 4-fund ledger system used by
-          Philippine barangay treasurers (Local Treasury, Bank, Cash Advance, and Petty Cash)
-          with automatic period-to-period balance carry-forward and PDF export matching official
-          layouts. Lightweight, with no external JS dependencies, server-side role-based access
-          control (treasurer vs. captain), voided transaction tracking, and a two-signature
-          approval workflow.
-        </p>
-        <div class="card-tags">
-          <span>Flask</span><span>Jinja2</span><span>SQLite</span><span>ReportLab</span>
-        </div>
-        <div class="card-links">
-          <a href="https://barangay-cashbook.onrender.com" target="_blank" rel="noopener">Try it live →</a>
-          <a href="https://github.com/mcglenn07/barangay-cashbook" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 3v5h5"/>
+                <path d="M12 12v6"/>
+                <path d="M9.5 14.5 12 12l2.5 2.5"/>
+              </svg>
+            </div>
+            <span class="card-badge">AI/LLM</span>
+          </div>
+          <h3>Resume Autofill for Gravity Forms</h3>
+          <p class="card-meta">WordPress Plugin</p>
+          <p>
+            A Gravity Forms add-on that autofills a job application form from an uploaded
+            resume, live, before submission. The applicant reviews and edits before hitting
+            submit. It extracts resume text (PDF/DOCX), sends it to OpenAI's Structured
+            Outputs API against a strict JSON schema, and maps the result onto whichever
+            fields the form owner configured. Consent is required and disclosed before any
+            file leaves the browser.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/gf-resume-autofill" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 9v6M9 12h6"/>
-            <circle cx="12" cy="12" r="9"/>
-          </svg>
-        </div>
-        <h3>Exam Tab Monitor</h3>
-        <p class="card-meta">Chrome Extension</p>
-        <p>
-          A proctoring aid for in-person exams given via Google Forms: detects when a student
-          switches to another tab or app mid-exam using the Page Visibility API and window
-          focus/blur events, flashes a full-screen warning, and logs each incident (plus
-          submission time) locally for the teacher to review afterward.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Chrome Extension</span><span>Manifest V3</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/exam-tab-monitor" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2c3 4 6 7.5 6 11.5a6 6 0 0 1-12 0C6 9.5 9 6 12 2z"/>
+            </svg>
+          </div>
+          <h3>Wellness Reminder</h3>
+          <p class="card-meta">WordPress Plugin</p>
+          <p>
+            Displays a dismissible, customizable wellness reminder popup (stand up, drink
+            water, stretch, rest your eyes) at a configurable interval. Built with the
+            WordPress Settings API for secure option handling and an MVC-style structure
+            (bootstrap class, settings class, and view), with conditional asset loading so
+            nothing is enqueued unless the reminder is enabled.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Settings API</span><span>JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/wellness-reminder" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M8 8h5v5H8z"/>
-          </svg>
-        </div>
-        <h3>StickySnap</h3>
-        <p class="card-meta">Chrome Extension</p>
-        <p>
-          Drag once per browser session to define a capture region, then every keyboard
-          shortcut or toolbar trigger after that silently re-captures the same region and
-          saves a PNG straight to Downloads, no dialog, no re-dragging. Handles CSS-vs-physical
-          pixel scaling, service-worker canvas cropping, and base64 encoding by hand since MV3
-          service workers have no FileReader or createObjectURL.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Chrome Extension</span><span>Manifest V3</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/mcglenn07/sticky-snap" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 15 L15 9"/>
+              <path d="M11 6 L13 4a4 4 0 0 1 6 6l-2 2"/>
+              <path d="M13 18 L11 20a4 4 0 0 1-6-6l2-2"/>
+            </svg>
+          </div>
+          <h3>404 &amp; Broken Link Logger</h3>
+          <p class="card-meta">WordPress Plugin</p>
+          <p>
+            Logs every 404 hit and lets an admin redirect any broken URL to a working one in one
+            click. MVC architecture, salted SHA-256 IP hashing, open-redirect protection, and CSV
+            export. CI runs PHP lint, smoke tests, and WPCS across PHP 7.4–8.3.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>MySQL</span><span>WordPress</span><span>GitHub Actions</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/broken-link-logger" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18"/>
+              <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6"/>
+              <path d="M16 11h3"/>
+            </svg>
+          </div>
+          <h3>Announcement Bar</h3>
+          <p class="card-meta">WordPress Plugin</p>
+          <p>
+            A lightweight plugin for displaying a customizable announcement bar with an optional
+            CTA button at the top of the site. Built with the WordPress Settings API for secure
+            option handling, sanitized hex color and URL inputs, escaped output, and an
+            MVC-style structure (bootstrap class, settings class, views, and helper functions).
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Settings API</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/announcement-bar" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"/>
+              <path d="M7 15l3-3 3 3 5-6"/>
+            </svg>
+          </div>
+          <h3>GF Form Abandonment Tracker</h3>
+          <p class="card-meta">WordPress Plugin</p>
+          <p>
+            Tracks visitors who start filling out a Gravity Forms form but leave before
+            submitting, logging the last field they touched. Adds an Abandonment tab to each
+            form's settings showing total drop-offs and a per-field breakdown, so site owners
+            can spot exactly where a form loses people.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Gravity Forms</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/gf-form-abandonment-tracker" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3.5 2"/>
+            </svg>
+          </div>
+          <h3>Reading Time Estimator</h3>
+          <p class="card-meta">WordPress Plugin</p>
+          <p>
+            Automatically adds an estimated reading time (e.g. "5 min read") to posts based on
+            word count. Settings page for reading speed, display position, custom label format,
+            and which post types it applies to, plus a <code>[reading_time]</code> shortcode for
+            manual placement.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Settings API</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/reading-time-estimator" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+      </div>
     </div>
-    <div class="show-more-wrap">
-      <button class="show-more-btn" type="button" data-target="otherProjectsGrid">
-        <span class="show-more-label">Show more</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
+
+    <div class="filter-panel" data-panel="other" hidden>
+      <div class="projects-grid">
+
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <path d="M9 8h7M9 12h5"/>
+            </svg>
+          </div>
+          <h3>Barangay Cashbook</h3>
+          <p class="card-meta">Web Application</p>
+          <p>
+            Digitizes the official 4-fund ledger system Philippine barangay treasurers use, with
+            automatic balance carry-forward and PDF export matching official layouts. No external
+            JS dependencies; server-side role-based access and a two-signature approval workflow.
+          </p>
+          <div class="card-tags">
+            <span>Flask</span><span>Jinja2</span><span>SQLite</span><span>ReportLab</span>
+          </div>
+          <div class="card-links">
+            <a href="https://barangay-cashbook.onrender.com" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/barangay-cashbook" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 9v6M9 12h6"/>
+              <circle cx="12" cy="12" r="9"/>
+            </svg>
+          </div>
+          <h3>Exam Tab Monitor</h3>
+          <p class="card-meta">Chrome Extension</p>
+          <p>
+            A proctoring aid for in-person exams given via Google Forms: detects when a student
+            switches to another tab or app mid-exam using the Page Visibility API and window
+            focus/blur events, flashes a full-screen warning, and logs each incident (plus
+            submission time) locally for the teacher to review afterward.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Chrome Extension</span><span>Manifest V3</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/exam-tab-monitor" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M8 8h5v5H8z"/>
+            </svg>
+          </div>
+          <h3>StickySnap</h3>
+          <p class="card-meta">Chrome Extension</p>
+          <p>
+            Drag once per session to define a capture region, then every trigger after that
+            silently re-captures it and saves a PNG straight to Downloads — no dialog, no
+            re-dragging. Handles pixel scaling and canvas cropping by hand since MV3 service
+            workers have no FileReader or createObjectURL.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Chrome Extension</span><span>Manifest V3</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/mcglenn07/sticky-snap" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+      </div>
     </div>
 
-    <h4 class="project-subgroup-title reveal">🎈 For My Kids</h4>
-    <div class="projects-grid" id="kidsGrid">
+    <div class="filter-panel" data-panel="kids" hidden>
+      <div class="projects-grid">
 
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="6" width="20" height="12" rx="2"/>
-            <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h8"/>
-          </svg>
-        </div>
-        <h3>Galactic Typer</h3>
-        <p class="card-meta">Browser Game</p>
-        <p>
-          A space-themed typing game built with vanilla JS and canvas: type falling words
-          before they crash into your station. Game state runs on a single
-          requestAnimationFrame loop with delta-time-based movement, so fall speed stays
-          tied to real elapsed time instead of how often the browser fires each frame.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Canvas</span><span>CSS</span>
-        </div>
-        <div class="card-links">
-          <a href="https://typing-game-five-xi.vercel.app/" target="_blank" rel="noopener">Play →</a>
-          <a href="https://github.com/mcglenn07/typing-game" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="12" rx="2"/>
+              <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h8"/>
+            </svg>
+          </div>
+          <h3>Galactic Typer</h3>
+          <p class="card-meta">Browser Game</p>
+          <p>
+            A space-themed typing game built with vanilla JS and canvas: type falling words
+            before they crash into your station. Game state runs on a single
+            requestAnimationFrame loop with delta-time-based movement, so fall speed stays
+            tied to real elapsed time instead of how often the browser fires each frame.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Canvas</span><span>CSS</span>
+          </div>
+          <div class="card-links">
+            <a href="https://typing-game-five-xi.vercel.app/" target="_blank" rel="noopener">Play →</a>
+            <a href="https://github.com/mcglenn07/typing-game" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 7v5l3 3"/>
-          </svg>
-        </div>
-        <h3>Class Timer</h3>
-        <p class="card-meta">Browser App</p>
-        <p>
-          A countdown timer with a settable minute dial, quick presets, and a chime on
-          finish, built with vanilla JS and an SVG progress ring. I use it to keep Sunday
-          school class segments on time and for timing review sessions.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Web Audio API</span><span>CSS</span>
-        </div>
-        <div class="card-links">
-          <a href="https://mcglenn07.github.io/class-timer/" target="_blank" rel="noopener">Play →</a>
-          <a href="https://github.com/mcglenn07/class-timer" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+          <h3>Class Timer</h3>
+          <p class="card-meta">Browser App</p>
+          <p>
+            A countdown timer with a settable minute dial, quick presets, and a chime on
+            finish, built with vanilla JS and an SVG progress ring. I use it to keep Sunday
+            school class segments on time and for timing review sessions.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Web Audio API</span><span>CSS</span>
+          </div>
+          <div class="card-links">
+            <a href="https://mcglenn07.github.io/class-timer/" target="_blank" rel="noopener">Play →</a>
+            <a href="https://github.com/mcglenn07/class-timer" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="9" rx="5" ry="6"/>
-            <path d="M12 15v2"/>
-            <path d="M10.5 19h3l-1.5 2z"/>
-          </svg>
-        </div>
-        <h3>Balloon Math</h3>
-        <p class="card-meta">Browser Game</p>
-        <p>
-          A multiplication practice game built with vanilla JS: type the answer to pop the
-          balloon showing that fact before it reaches the ground. Balloons spawn into fixed
-          horizontal lanes so they can never overlap or hide one another, with three difficulty
-          tiers (1-digit, 2-by-1-digit, and 2-digit facts) and priority given to whichever
-          matching balloon has fallen furthest when two share the same answer.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Canvas</span><span>CSS</span>
-        </div>
-        <div class="card-links">
-          <a href="https://balloon-math.vercel.app/" target="_blank" rel="noopener">Play →</a>
-          <a href="https://github.com/mcglenn07/balloon-math" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="9" rx="5" ry="6"/>
+              <path d="M12 15v2"/>
+              <path d="M10.5 19h3l-1.5 2z"/>
+            </svg>
+          </div>
+          <h3>Balloon Math</h3>
+          <p class="card-meta">Browser Game</p>
+          <p>
+            A multiplication practice game built with vanilla JS: type the answer to pop the
+            balloon showing that fact before it reaches the ground. Balloons spawn into fixed
+            horizontal lanes so they can never overlap or hide one another, with three difficulty
+            tiers (1-digit, 2-by-1-digit, and 2-digit facts) and priority given to whichever
+            matching balloon has fallen furthest when two share the same answer.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Canvas</span><span>CSS</span>
+          </div>
+          <div class="card-links">
+            <a href="https://balloon-math.vercel.app/" target="_blank" rel="noopener">Play →</a>
+            <a href="https://github.com/mcglenn07/balloon-math" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="9" rx="5" ry="6"/>
-            <path d="M12 15v2"/>
-            <path d="M10.5 19h3l-1.5 2z"/>
-            <path d="M2 12c0-3 2-4 2-4s2 1 2 4-2 4-2 4-2-1-2-4z"/>
-          </svg>
-        </div>
-        <h3>ABC Balloons</h3>
-        <p class="card-meta">Browser Game</p>
-        <p>
-          An alphabet-learning game for early readers, built with vanilla JS and the Web
-          Speech API: say the capital letter shown on a balloon out loud to pop it before it
-          reaches the ground. A phonetic lookup table compensates for common single-letter
-          mishearings (e.g. "bee" for B), and a keyboard (A–Z) fallback keeps it playable in
-          browsers without voice support.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Web Speech API</span><span>CSS</span>
-        </div>
-        <div class="card-links">
-          <a href="https://abc-balloons.vercel.app/" target="_blank" rel="noopener">Play →</a>
-          <a href="https://github.com/mcglenn07/abc-balloons" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="9" rx="5" ry="6"/>
+              <path d="M12 15v2"/>
+              <path d="M10.5 19h3l-1.5 2z"/>
+              <path d="M2 12c0-3 2-4 2-4s2 1 2 4-2 4-2 4-2-1-2-4z"/>
+            </svg>
+          </div>
+          <h3>ABC Balloons</h3>
+          <p class="card-meta">Browser Game</p>
+          <p>
+            An alphabet-learning game for early readers, built with vanilla JS and the Web
+            Speech API: say the capital letter shown on a balloon out loud to pop it before it
+            reaches the ground. A phonetic lookup table compensates for common single-letter
+            mishearings (e.g. "bee" for B), and a keyboard (A–Z) fallback keeps it playable in
+            browsers without voice support.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Web Speech API</span><span>CSS</span>
+          </div>
+          <div class="card-links">
+            <a href="https://abc-balloons.vercel.app/" target="_blank" rel="noopener">Play →</a>
+            <a href="https://github.com/mcglenn07/abc-balloons" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-      <article class="card reveal card-extra">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 3v9l7.5 4.3"/>
-            <path d="M12 12L4.5 16.3"/>
-          </svg>
-        </div>
-        <h3>Dual Spinwheel</h3>
-        <p class="card-meta">Browser App</p>
-        <p>
-          A two-wheel spinner for picking between two lists at once, built with vanilla JS
-          and HTML5 Canvas. Spin both wheels together, watch the pointer flash the color of
-          whichever slice it's over in real time, then remove a pick from the pool with one
-          tap. My kids use it to randomly assign household chores.
-        </p>
-        <div class="card-tags">
-          <span>JavaScript</span><span>Canvas</span><span>CSS</span>
-        </div>
-        <div class="card-links">
-          <a href="https://mcglenn07.github.io/dual-spinwheel/" target="_blank" rel="noopener">Play →</a>
-          <a href="https://github.com/mcglenn07/dual-spinwheel" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 3v9l7.5 4.3"/>
+              <path d="M12 12L4.5 16.3"/>
+            </svg>
+          </div>
+          <h3>Dual Spinwheel</h3>
+          <p class="card-meta">Browser App</p>
+          <p>
+            A two-wheel spinner for picking between two lists at once, built with vanilla JS
+            and HTML5 Canvas. Spin both wheels together, watch the pointer flash the color of
+            whichever slice it's over in real time, then remove a pick from the pool with one
+            tap. My kids use it to randomly assign household chores.
+          </p>
+          <div class="card-tags">
+            <span>JavaScript</span><span>Canvas</span><span>CSS</span>
+          </div>
+          <div class="card-links">
+            <a href="https://mcglenn07.github.io/dual-spinwheel/" target="_blank" rel="noopener">Play →</a>
+            <a href="https://github.com/mcglenn07/dual-spinwheel" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
-    </div>
-    <div class="show-more-wrap">
-      <button class="show-more-btn" type="button" data-target="kidsGrid">
-        <span class="show-more-label">Show more</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
+      </div>
     </div>
   </div>
 </section>
@@ -666,11 +690,11 @@
             <span class="job-date">Dec 2024 – Jun 2026</span>
           </div>
           <ul>
-            <li>Resolved technical support tickets for 1,000+ customers across the Gravity Wiz product suite by troubleshooting complex WordPress, PHP, and Gravity Forms issues, restoring functionality and minimizing customer downtime.</li>
-            <li>Conducted root-cause analysis across WordPress environments, plugin conflicts, caching layers, and custom code, enabling customers and engineering teams to implement reliable long-term solutions.</li>
-            <li>Partnered with engineering teams to reproduce software defects, document technical findings, and validate product fixes.</li>
-            <li>Maintained a zero-ticket support backlog through effective prioritization, efficient issue resolution, and timely customer communication.</li>
-            <li>Maintained a 90%+ customer satisfaction rating while helping customers implement advanced workflows using Gravity Wiz products, Gravity Forms, APIs, payment gateways, and third-party plugins.</li>
+            <li>Resolved support tickets for 1,000+ customers across the Gravity Wiz product suite — WordPress, PHP, and Gravity Forms issues, restoring functionality fast.</li>
+            <li>Root-caused issues across WordPress environments, plugin conflicts, caching layers, and custom code for reliable long-term fixes.</li>
+            <li>Partnered with engineering to reproduce defects, document findings, and validate fixes.</li>
+            <li>Maintained a zero-ticket backlog through tight prioritization and fast turnaround.</li>
+            <li>Held a 90%+ CSAT rating across Gravity Forms, APIs, payment gateways, and third-party plugin workflows.</li>
           </ul>
         </div>
       </div>
@@ -683,10 +707,10 @@
             <span class="job-date">Jul 2019 – Dec 2024</span>
           </div>
           <ul>
-            <li>Delivered 100+ custom Gravity PDF projects by translating client requirements into scalable document automation solutions, from technical discovery through implementation and deployment.</li>
-            <li>Collaborated with developers, designers, and clients to translate business requirements into custom Gravity PDF solutions throughout the project lifecycle.</li>
-            <li>Diagnosed and resolved complex Gravity PDF implementation and PDF generation issues to ensure reliable client deployments.</li>
-            <li>Managed multiple concurrent client projects while coordinating project timelines, stakeholder communication, and on-time delivery.</li>
+            <li>Delivered 100+ custom Gravity PDF projects, from technical discovery through implementation and deployment.</li>
+            <li>Collaborated with developers, designers, and clients on custom Gravity PDF solutions end to end.</li>
+            <li>Diagnosed and resolved complex PDF generation issues for reliable client deployments.</li>
+            <li>Managed multiple concurrent projects — timelines, stakeholder communication, on-time delivery.</li>
           </ul>
         </div>
       </div>
@@ -714,37 +738,37 @@
     <h2 class="reveal">Skills</h2>
     <div class="skills-grid reveal">
       <div class="skill-group">
-        <h4>Languages &amp; Frameworks</h4>
+        <h3>Languages &amp; Frameworks</h3>
         <ul class="tags">
           <li>PHP</li><li>MySQL</li><li>HTML5 &amp; CSS3</li><li>JavaScript</li><li>Python</li><li>OpenAI API</li><li>Llama API</li><li>Gradio</li>
         </ul>
       </div>
       <div class="skill-group">
-        <h4>Engineering Practices</h4>
+        <h3>Engineering Practices</h3>
         <ul class="tags">
           <li>Root-Cause Analysis</li><li>Troubleshooting</li><li>MVC-style Architecture</li><li>API Integrations</li><li>Defect Management</li><li>Quality Assurance</li><li>Risk Mitigation</li><li>Production Environment Troubleshooting</li><li>Caching Layers</li><li>Document Automation</li>
         </ul>
       </div>
       <div class="skill-group">
-        <h4>CMS &amp; Platforms</h4>
+        <h3>CMS &amp; Platforms</h3>
         <ul class="tags">
           <li>WordPress (Plugin Development)</li><li>Gravity Forms</li><li>Gravity Wiz</li><li>Gravity PDF</li><li>WooCommerce</li><li>Elementor</li><li>Divi</li><li>Shopify</li><li>Unbounce</li>
         </ul>
       </div>
       <div class="skill-group">
-        <h4>Tools</h4>
+        <h3>Tools</h3>
         <ul class="tags">
           <li>Git</li><li>GitHub</li><li>ClickUp</li><li>Payment Gateway Integrations</li>
         </ul>
       </div>
       <div class="skill-group">
-        <h4>Teamwork &amp; Customer Focus</h4>
+        <h3>Teamwork &amp; Customer Focus</h3>
         <ul class="tags">
           <li>Client Support</li><li>Relationship Building</li><li>Communication</li><li>Cross-functional Collaboration</li><li>Trusted Advisor</li><li>Project Management</li><li>Technical Documentation</li><li>Knowledge Base Management</li><li>Remote Collaboration</li>
         </ul>
       </div>
       <div class="skill-group">
-        <h4>Certifications</h4>
+        <h3>Certifications</h3>
         <ul class="tags">
           <li>Creating WordPress Plugins The Right Way — Udemy</li>
           <li>JavaScript Complete Grandmaster Course 2026 — Udemy</li>
