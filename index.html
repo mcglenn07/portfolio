@@ -122,6 +122,33 @@
 
         <article class="featured-card">
           <div class="featured-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M9 21h6"/></svg>
+          </div>
+          <div>
+            <div class="featured-head">
+              <h3>RA 9262 Assistant</h3>
+            </div>
+            <p class="card-meta">RAG Web App · AI/LLM</p>
+            <p>
+              A retrieval-augmented assistant for the Philippine Anti-VAWC Act and its implementing
+              rules that cites a section for every claim and refuses what the law doesn't cover.
+              Chunks follow the law's own sections, search runs on pgvector, a hand-verified crosswalk
+              pairs each law section with its rule, and code removes any citation to a section the
+              search didn't return. Measured on a 52-question eval: the right section is in the top 5
+              for 42 of 45 answerable questions, and 7 of 7 out-of-scope questions are refused.
+            </p>
+            <div class="card-tags">
+              <span>Python</span><span>RAG</span><span>OpenAI API</span><span>pgvector</span><span>PostgreSQL</span><span>Gradio</span>
+            </div>
+          </div>
+          <div class="featured-links">
+            <a href="https://huggingface.co/spaces/mcglenn07/VAWC-RAG" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/vawc-rag" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
           </div>
           <div>
@@ -727,7 +754,7 @@
       <div class="skill-group">
         <h3>Engineering Practices</h3>
         <ul class="tags" id="tags-engineering">
-          <li>Root-Cause Analysis</li><li>Troubleshooting</li><li>MVC-style Architecture</li><li>API Integrations</li><li>Defect Management</li><li>Quality Assurance</li><li hidden>Risk Mitigation</li><li hidden>Production Environment Troubleshooting</li><li hidden>Caching Layers</li><li hidden>Document Automation</li>
+          <li>Root-Cause Analysis</li><li>Troubleshooting</li><li>MVC-style Architecture</li><li>API Integrations</li><li>RAG &amp; LLM Evaluation</li><li>Defect Management</li><li>Quality Assurance</li><li hidden>Risk Mitigation</li><li hidden>Production Environment Troubleshooting</li><li hidden>Caching Layers</li><li hidden>Document Automation</li>
         </ul>
         <button class="tags-toggle" type="button" aria-expanded="false" aria-controls="tags-engineering"></button>
       </div>
