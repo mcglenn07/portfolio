@@ -563,6 +563,8 @@ code, .mono { font-family: var(--mono); }
 }
 .case-study dd { margin: 0; color: var(--muted); font-size: 14px; max-width: 68ch; }
 .case-study code { font-size: 12.5px; color: var(--cyan-bright); }
+.featured-card .case-study dd p { font-size: inherit; margin: 0; }
+.featured-card .case-study dd p + p { margin-top: 8px; }
 
 .more-recs { margin-top: 24px; }
 .more-recs .testimonials-grid { margin-top: 12px; }

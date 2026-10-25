@@ -292,27 +292,44 @@
               <dl>
                 <div>
                   <dt>Problem and users</dt>
-                  <dd>Lecture slides carry citations, numbers, and definitions that the lecturer often skips aloud, so a transcript alone loses them. I wanted my own lecture recordings turned into notes that keep both, without uploading the recordings anywhere.</dd>
+                  <dd>Lecture slides contain citations, figures, and definitions that lecturers often skip aloud. A transcript alone misses that material. I built this tool for my own lectures to turn recordings into notes that preserve both spoken explanations and slide content, while keeping the recordings on my Mac.</dd>
                 </div>
                 <div>
                   <dt>How it works</dt>
-                  <dd>Eight stages, each in its own subprocess: audio extraction, Whisper transcription (mlx-whisper) with a subject glossary, slide detection with PySceneDetect on a small proxy video with the webcam overlay masked, OCR of each slide with Qwen3.5-9B through mlx-vlm, alignment of speech to slides, screen-only detection with rapidfuzz, and one markdown file per lecture. A launchd agent watches an Inbox folder. A Claude Code slash command then merges each file into existing Obsidian notes and flags anything the slide frame doesn't settle.</dd>
+                  <dd>
+                    <p>A launchd agent watches an Inbox folder and starts a pipeline with each stage running in its own subprocess. The pipeline extracts audio, transcribes it with mlx-whisper and a subject glossary, and detects slides with PySceneDetect using a small proxy video with the webcam overlay masked. It then reads each slide with Qwen3.5-9B through mlx-vlm, aligns speech with slides, uses rapidfuzz to identify content shown but not spoken, and produces one Markdown file per lecture.</p>
+                    <p>A Claude Code slash command merges that file into existing Obsidian notes and flags uncertainties it cannot resolve from the slide frames.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Design decisions</dt>
-                  <dd>Patched mlx-whisper so the glossary prompt reaches every 30-second window, not just the first. Chose the OCR model with a scored bake-off (18 slides, 173 hand-checked lines). Cross-checked every citation against on-device Apple Vision OCR. Deduplicated slides twice, visually and then by OCR text, because a missed slide is worse than a duplicate. Made every stage skip itself when its output exists, so any stage can rerun alone. For the merge step, a one-lecture trial showed Sonnet matching Opus, so the full merge ran on the cheaper model.</dd>
+                  <dd>
+                    <p>I patched mlx-whisper to apply the subject glossary to every 30-second window, rather than only the first. I selected the OCR model through a scored comparison using 18 slides and 173 manually checked lines, then cross-checked every citation against on-device Apple Vision OCR.</p>
+                    <p>Slides are deduplicated twice: first visually, then by OCR text. The process favors retaining a duplicate over losing a slide. Each stage skips processing when its output already exists, allowing individual stages to rerun independently.</p>
+                    <p>For the merge step, Sonnet matched Opus in a one-lecture trial, so I used the lower-cost model for the full merge.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>What I verified</dt>
-                  <dd>On a 1 h 52 min recording, every Apple Vision line from all 298 detected scenes was matched against the final slides: 0 slides missed. Of 8 citation-mismatch flags, 7 were Apple Vision errors and 1 was a real model error: a citation the model wrote for a line cut off at the frame edge, which the flag caught. After the merge, a separate script found 3,165 of 3,165 slide lines verbatim in the notes and 0 invented citations.</dd>
+                  <dd>
+                    <p>On a 1-hour, 52-minute recording, I checked every Apple Vision line across all 298 detected scenes against the final slide set and found no missed slides.</p>
+                    <p>Of eight citation-mismatch flags, seven were Apple Vision errors. One caught a real model error: an inferred citation for a line cut off at the edge of the frame.</p>
+                    <p>After the merge, a separate script confirmed that all 3,165 slide lines appeared verbatim in the notes and found no invented citations.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Results and what they mean</dt>
-                  <dd>45 lectures processed unattended in about 2 h 45 min (3 min 39 s on average, 0 failed). A 1 h 52 min recording at 1782×924 took 54–57 minutes, 77% of it OCR. The merge updated 46 existing notes and created none, and 127 tests cover the pipeline logic. These are results on my own lectures, not a benchmark.</dd>
+                  <dd>
+                    <p>The pipeline processed 45 lectures unattended in about 2 hours and 45 minutes—an average of 3 minutes and 39 seconds per lecture—with no failures. A 1-hour, 52-minute recording at 1782 × 924 resolution took 54–57 minutes, with OCR accounting for 77% of processing time.</p>
+                    <p>The merge updated 46 existing notes without creating new ones. The pipeline logic is covered by 127 tests. These results reflect my own lecture collection, not a general benchmark.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Known limits</dt>
-                  <dd>Mac-only (MLX, Apple Vision, launchd). OCR dominates processing time. Screen-only detection over-flags by design; on a lecturer who skims dense slides, 57% of lines were flagged. Transcription, slide detection, and OCR stay on the Mac, but the merge step runs in Claude Code, so the raw text and the frames it checks go to Claude. No hosted demo.</dd>
+                  <dd>
+                    <p>The pipeline is Mac-only because it depends on MLX, Apple Vision, and launchd. OCR accounts for most of the processing time. Detection of content shown but not spoken deliberately favors over-flagging: for a lecturer who skimmed dense slides, it flagged 57% of lines.</p>
+                    <p>Transcription, slide detection, and OCR run locally. The merge step uses Claude Code, so extracted text and any slide frames it checks are sent to Claude. The recordings themselves stay on the Mac. There is no hosted demo.</p>
+                  </dd>
                 </div>
               </dl>
             </details>
