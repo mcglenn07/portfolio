@@ -147,27 +147,45 @@
               <dl>
                 <div>
                   <dt>Problem and users</dt>
-                  <dd>Anyone reading RA 9262 has to cross-check the Act against its implementing rules. The assistant answers in plain language, cites the section behind each claim, and says so when neither document covers the question.</dd>
+                  <dd>Understanding RA 9262 often requires reading the Act alongside its implementing rules. I built the assistant to explain the material in plain language, cite relevant sections, and acknowledge when the two documents do not cover a question.</dd>
                 </div>
                 <div>
                   <dt>How it works</dt>
-                  <dd>PDF, to reviewed markdown, to 134 section-based chunks embedded with <code>text-embedding-3-large</code> into pgvector on Supabase. Each question retrieves the top 5 sections, adds the matching law or rules section from a 59-pair crosswalk, and <code>gpt-4.1-mini</code> answers with citations. Code then removes any citation to a section that was not retrieved.</dd>
+                  <dd>
+                    <p>I converted the source PDF into reviewed Markdown, divided the text into 134 section-based chunks, and embedded them with <code>text-embedding-3-large</code> in pgvector on Supabase.</p>
+                    <p>For each question, the app retrieves the top five sections and adds corresponding sections from a manually verified, 59-pair crosswalk between the Act and its rules. <code>gpt-4.1-mini</code> then generates an answer with citations. A final code check removes citations to sections that were not retrieved.</p>
+                  </dd>
                 </div>
                 <div>
-                  <dt>What I verified by hand</dt>
-                  <dd>Every row of the law-to-rules crosswalk, and all 52 evaluation questions against the source PDF. A second model review led to 5 corrections before the final run.</dd>
+                  <dt>What I verified</dt>
+                  <dd>I manually checked all 59 crosswalk pairs and all 52 evaluation questions against the source PDF. A second model review prompted five corrections before the final evaluation run.</dd>
                 </div>
                 <div>
-                  <dt>Design decision</dt>
-                  <dd>Chunks follow the law's own sections, each prefixed with its citation and heading. In comparison runs the prefix helped (42 vs 39 of 45 in the top 5), while a cheaper embedding model, smaller chunks, and overlap made no measurable difference on this set.</dd>
+                  <dt>Design decisions</dt>
+                  <dd>
+                    <p>Chunks follow the documents’ section boundaries and begin with their citation and heading. In comparison runs, adding those prefixes improved top-five retrieval from 39 to 42 of 45 answerable questions.</p>
+                    <p>A cheaper embedding model, smaller chunks, and overlapping chunks produced no measurable difference on this evaluation set.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Results and what they mean</dt>
-                  <dd>On the 52-question set (15 law, 12 rules, 13 needing both, 5 follow-ups, 7 not covered): expected section in the top 5 for 42 of 45 answerable questions (MRR 0.86), 7 of 7 not-covered questions refused, 1 of 45 answerable questions wrongly refused. These are retrieval and refusal results on this set, not answer accuracy and not a guarantee. Answers were scored by an LLM judge, not a lawyer.</dd>
+                  <dd>
+                    <p>The evaluation covered 15 questions about the Act, 12 about the rules, 13 requiring both, five follow-ups, and seven outside the documents’ scope.</p>
+                    <ul>
+                      <li>Retrieval: All expected sections appeared in the top five for 42 of 45 answerable questions, with a mean reciprocal rank of 0.86.</li>
+                      <li>Out-of-scope handling: All seven questions outside the documents’ coverage were refused.</li>
+                      <li>Incorrect refusals: One of the 45 answerable questions was wrongly refused.</li>
+                    </ul>
+                    <p>These measure retrieval and refusal behavior on this evaluation set; they do not establish answer accuracy. Answer quality was assessed by an LLM judge, not a lawyer.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Known limits</dt>
-                  <dd>Questions were drafted by a model from each section's own text, which can flatter retrieval. Documented failures include a follow-up question where unsupported answer text stayed after the unsupported citations were removed, and a filing-deadline question that did not retrieve the right sections. Covers only the 2004 rules, with no amendments or case law.</dd>
+                  <dd>
+                    <p>Most evaluation questions (40 of 52) were drafted by a model from each section’s own text, which may make retrieval easier than it would be for independently written questions.</p>
+                    <p>Documented failures include a follow-up answer that retained unsupported text after its citations were removed, and a filing-deadline question that failed to retrieve the relevant sections. Citation filtering checks whether a section was retrieved; it does not establish that the section supports the answer.</p>
+                    <p>Coverage is limited to the Act and its 2004 implementing rules. Amendments and case law are not included.</p>
+                  </dd>
                 </div>
               </dl>
             </details>

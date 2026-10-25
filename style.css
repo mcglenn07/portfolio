@@ -565,6 +565,9 @@ code, .mono { font-family: var(--mono); }
 .case-study code { font-size: 12.5px; color: var(--cyan-bright); }
 .featured-card .case-study dd p { font-size: inherit; margin: 0; }
 .featured-card .case-study dd p + p { margin-top: 8px; }
+.featured-card .case-study dd ul { margin: 8px 0 0; padding-left: 20px; }
+.featured-card .case-study dd li + li { margin-top: 4px; }
+.featured-card .case-study dd ul + p { margin-top: 8px; }
 
 .more-recs { margin-top: 24px; }
 .more-recs .testimonials-grid { margin-top: 12px; }
