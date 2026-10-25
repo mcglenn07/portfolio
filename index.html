@@ -215,23 +215,39 @@
               <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
             </div>
             <details class="case-study">
-              <summary>Case study: tools, design decision, scope</summary>
+              <summary>Case study: tools, design decision, and scope</summary>
               <dl>
                 <div>
                   <dt>Problem and users</dt>
-                  <dd>Gravity Forms support work often starts with the same checks: plugin versions, PHP and WordPress environment, the debug log, add-on logs, and failed notifications or feeds. This server lets an AI assistant run those checks directly instead of relaying them through a person.</dd>
+                  <dd>Gravity Forms support often begins with the same checks: plugin versions, PHP and WordPress configuration, debug logs, add-on logs, and failed notifications or feeds. I built this server so an AI assistant can gather those details directly, reducing the manual back-and-forth involved in troubleshooting.</dd>
                 </div>
                 <div>
                   <dt>The seven tools</dt>
-                  <dd>List plugins, PHP/WordPress/WP-CLI info, tail <code>debug.log</code>, run a read-only SELECT, list recent Gravity Forms entries with error notes, list Gravity Forms loggers, and tail one add-on's log by slug.</dd>
+                  <dd>
+                    <ul>
+                      <li>List installed plugins.</li>
+                      <li>Report PHP, WordPress, and WP-CLI information.</li>
+                      <li>Read the last lines of <code>debug.log</code>.</li>
+                      <li>Run a SQL query through a SELECT-only filter.</li>
+                      <li>Find recent Gravity Forms entries with error notes.</li>
+                      <li>List available Gravity Forms loggers.</li>
+                      <li>Read the last lines of an add-on’s log, by slug.</li>
+                    </ul>
+                  </dd>
                 </div>
                 <div>
                   <dt>Design decision</dt>
-                  <dd>Local by Flywheel pins each site to its own PHP version and MySQL socket, so a bare WP-CLI call fails with a database error. One <code>run_wp_cli()</code> helper points every tool at the right binary and socket, so each tool is a thin wrapper around one WP-CLI command.</dd>
+                  <dd>
+                    <p>Local by Flywheel assigns each site its own PHP version and MySQL socket. In my setup, a default WP-CLI call failed with a database connection error.</p>
+                    <p>I centralized the configuration in a single <code>run_wp_cli()</code> helper that directs every WP-CLI call to the correct binary and socket. This keeps each tool focused on its diagnostic task, with shared connection settings maintained in one place.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Scope and limits</dt>
-                  <dd>Built and tested against a local WordPress installation (Local by Flywheel) running the Gravity Forms and Gravity PDF stack. It has not been deployed against a production or remote site. The SQL tool accepts one statement that starts with SELECT; that is a basic filter, not a security boundary, which is why it is meant for a local development database.</dd>
+                  <dd>
+                    <p>Built and tested on a local WordPress installation in Local by Flywheel, running Gravity Forms and Gravity PDF. It has not been deployed against a production or remote site.</p>
+                    <p>The SQL tool accepts a single statement beginning with <code>SELECT</code>. This is a basic input filter, not a security boundary, so the tool is intended for use with a local development database.</p>
+                  </dd>
                 </div>
               </dl>
             </details>

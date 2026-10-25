@@ -568,6 +568,7 @@ code, .mono { font-family: var(--mono); }
 .featured-card .case-study dd ul { margin: 8px 0 0; padding-left: 20px; }
 .featured-card .case-study dd li + li { margin-top: 4px; }
 .featured-card .case-study dd ul + p { margin-top: 8px; }
+.featured-card .case-study dd ul:first-child { margin-top: 2px; }
 
 .more-recs { margin-top: 24px; }
 .more-recs .testimonials-grid { margin-top: 12px; }
