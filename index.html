@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mc Glenn Tangalin — AI Engineer / Software Engineer</title>
-<meta name="description" content="Software Engineer and Software Support Engineer with 7+ years of experience developing software solutions, resolving complex production issues, and partnering with engineering teams to deliver reliable software. Now pivoting toward AI Support Engineering.">
+<title>Mc Glenn Tangalin — Software Engineer | Applied AI and WordPress Tooling</title>
+<meta name="description" content="Software engineer with 7+ years of WordPress/PHP development and technical support experience. Delivered 100+ custom Gravity PDF projects and supported 1,000+ customers. Now building Python applications using retrieval-augmented generation, OpenAI function calling, and MCP.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <meta name="theme-color" content="#0a0e17">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,10 +52,11 @@
         <div class="avatar">
           <img src="assets/glenn-photo.jpg" alt="Mc Glenn Tangalin" width="92" height="92">
         </div>
-        <p class="eyebrow">AI Engineer / Software Engineer</p>
+        <p class="eyebrow">Software Engineer | Applied AI and WordPress Tooling</p>
         <h1>Mc Glenn Tangalin</h1>
-        <p class="tagline" id="heroTagline">I build software solutions, debug complex production issues, and apply
-      AI-assisted engineering to help teams and customers ship reliable, scalable systems.</p>
+        <p class="tagline" id="heroTagline">7+ years of WordPress/PHP development and technical support. Now building
+      Python applications with retrieval-augmented generation, OpenAI function calling, and MCP, including an
+      evaluated Philippine-law assistant and a WordPress diagnostics server.</p>
         <div class="hero-links">
           <a class="btn btn-primary" href="#projects">View Projects</a>
           <a class="btn btn-outline" href="assets/Glenn-Tangalin-Resume.pdf" target="_blank">Download Résumé</a>
@@ -82,20 +83,21 @@
 
 <section id="about" class="section">
   <div class="container">
-    <h2>Software Engineer with a support engineer's eye for detail, now building AI-assisted tooling</h2>
+    <h2>WordPress/PHP engineer and support specialist, now building applied AI tools</h2>
     <p class="lead">
-      7+ years resolving production issues and shipping software as both a support engineer
-      and a developer — PHP, MySQL, JavaScript, API integrations, root-cause analysis. 1,000+
-      customers helped, 90%+ CSAT, 100+ projects delivered.
+      7+ years of WordPress/PHP development and technical support, from custom Gravity PDF
+      projects to debugging customers' production sites. Since June 2026, I've been building
+      independent Python projects in retrieval-augmented generation, OpenAI function calling,
+      and MCP, alongside freelance WordPress work.
     </p>
     <div class="stats">
       <div class="stat">
         <span class="stat-num">7+</span>
-        <span class="stat-label">Years Experience</span>
+        <span class="stat-label">Years in Software Development &amp; Support</span>
       </div>
       <div class="stat">
         <span class="stat-num">100+</span>
-        <span class="stat-label">Projects Delivered</span>
+        <span class="stat-label">Custom Gravity PDF Projects</span>
       </div>
       <div class="stat">
         <span class="stat-num">1,000+</span>
@@ -108,6 +110,7 @@
 <section id="projects" class="section alt">
   <div class="container">
     <h2>Selected Projects</h2>
+    <p class="projects-note">Independent projects, separate from my professional experience below. Some live demos run on free hosting tiers that sleep when idle, so a first visit can take up to a minute to wake them.</p>
 
     <div class="filter-bar" id="projectFilterBar" role="tablist" aria-label="Filter projects by category">
       <button class="filter-pill active" type="button" role="tab" id="tab-featured" aria-controls="panel-featured" aria-selected="true" tabindex="0" data-panel="featured">★ Featured</button>
@@ -128,18 +131,46 @@
             <div class="featured-head">
               <h3>RA 9262 Assistant</h3>
             </div>
-            <p class="card-meta">RAG Web App · AI/LLM</p>
+            <p class="card-meta">RAG Web App · AI/LLM · Independent project</p>
             <p>
-              A retrieval-augmented assistant for the Philippine Anti-VAWC Act and its implementing
-              rules that cites a section for every claim and refuses what the law doesn't cover.
-              Chunks follow the law's own sections, search runs on pgvector, a hand-verified crosswalk
-              pairs each law section with its rule, and code removes any citation to a section the
-              search didn't return. Measured on a 52-question eval: the right section is in the top 5
-              for 42 of 45 answerable questions, and 7 of 7 out-of-scope questions are refused.
+              Answers questions about the Philippine Anti-VAWC Act (RA 9262) and its 2004
+              implementing rules. Generates section-cited answers and filters citations against the
+              sections it retrieved. On my 52-question evaluation set, the expected section was in
+              the top 5 results for 42 of 45 answerable questions, and 7 of 7 out-of-scope questions
+              were refused. Legal information only, not legal advice.
             </p>
             <div class="card-tags">
               <span>Python</span><span>RAG</span><span>OpenAI API</span><span>pgvector</span><span>PostgreSQL</span><span>Gradio</span>
             </div>
+            <details class="case-study">
+              <summary>Case study: results, design decision, limits</summary>
+              <dl>
+                <div>
+                  <dt>Problem and users</dt>
+                  <dd>Anyone reading RA 9262 has to cross-check the Act against its implementing rules. The assistant answers in plain language, cites the section behind each claim, and says so when neither document covers the question.</dd>
+                </div>
+                <div>
+                  <dt>How it works</dt>
+                  <dd>PDF, to reviewed markdown, to 134 section-based chunks embedded with <code>text-embedding-3-large</code> into pgvector on Supabase. Each question retrieves the top 5 sections, adds the matching law or rules section from a 59-pair crosswalk, and <code>gpt-4.1-mini</code> answers with citations. Code then removes any citation to a section that was not retrieved.</dd>
+                </div>
+                <div>
+                  <dt>What I verified by hand</dt>
+                  <dd>Every row of the law-to-rules crosswalk, and all 52 evaluation questions against the source PDF. A second model review led to 5 corrections before the final run.</dd>
+                </div>
+                <div>
+                  <dt>Design decision</dt>
+                  <dd>Chunks follow the law's own sections, each prefixed with its citation and heading. In comparison runs the prefix helped (42 vs 39 of 45 in the top 5), while a cheaper embedding model, smaller chunks, and overlap made no measurable difference on this set.</dd>
+                </div>
+                <div>
+                  <dt>Results and what they mean</dt>
+                  <dd>On the 52-question set (15 law, 12 rules, 13 needing both, 5 follow-ups, 7 not covered): expected section in the top 5 for 42 of 45 answerable questions (MRR 0.86), 7 of 7 not-covered questions refused, 1 of 45 answerable questions wrongly refused. These are retrieval and refusal results on this set, not answer accuracy and not a guarantee. Answers were scored by an LLM judge, not a lawyer.</dd>
+                </div>
+                <div>
+                  <dt>Known limits</dt>
+                  <dd>Questions were drafted by a model from each section's own text, which can flatter retrieval. Documented failures include a follow-up question where unsupported answer text stayed after the unsupported citations were removed, and a filing-deadline question that did not retrieve the right sections. Covers only the 2004 rules, with no amendments or case law.</dd>
+                </div>
+              </dl>
+            </details>
           </div>
           <div class="featured-links">
             <a href="https://huggingface.co/spaces/mcglenn07/VAWC-RAG" target="_blank" rel="noopener">Try it live →</a>
@@ -155,15 +186,37 @@
             <div class="featured-head">
               <h3>WP Diagnostics MCP</h3>
             </div>
-            <p class="card-meta">MCP Server</p>
+            <p class="card-meta">MCP Server · Independent project</p>
             <p>
-              Gives an AI assistant direct diagnostic access to a live WordPress site: plugin/PHP
-              info, debug-log tailing, and a guarded SELECT-only SQL tool. Two tools are purpose-built
-              for Gravity Forms support: pulling error-flagged entries and tailing any add-on's log by name.
+              Gives an AI assistant diagnostic access to a local WordPress installation through
+              seven WP-CLI-backed tools: plugin and PHP/WordPress info, debug-log tailing, and a
+              SELECT-only SQL tool. Two tools are built for Gravity Forms support work: pulling
+              error-flagged entries and tailing an add-on's log by name.
             </p>
             <div class="card-tags">
               <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
             </div>
+            <details class="case-study">
+              <summary>Case study: tools, design decision, scope</summary>
+              <dl>
+                <div>
+                  <dt>Problem and users</dt>
+                  <dd>Gravity Forms support work often starts with the same checks: plugin versions, PHP and WordPress environment, the debug log, add-on logs, and failed notifications or feeds. This server lets an AI assistant run those checks directly instead of relaying them through a person.</dd>
+                </div>
+                <div>
+                  <dt>The seven tools</dt>
+                  <dd>List plugins, PHP/WordPress/WP-CLI info, tail <code>debug.log</code>, run a read-only SELECT, list recent Gravity Forms entries with error notes, list Gravity Forms loggers, and tail one add-on's log by slug.</dd>
+                </div>
+                <div>
+                  <dt>Design decision</dt>
+                  <dd>Local by Flywheel pins each site to its own PHP version and MySQL socket, so a bare WP-CLI call fails with a database error. One <code>run_wp_cli()</code> helper points every tool at the right binary and socket, so each tool is a thin wrapper around one WP-CLI command.</dd>
+                </div>
+                <div>
+                  <dt>Scope and limits</dt>
+                  <dd>Built and tested against a local WordPress installation (Local by Flywheel) running the Gravity Forms and Gravity PDF stack. It has not been deployed against a production or remote site. The SQL tool accepts one statement that starts with SELECT; that is a basic filter, not a security boundary, which is why it is meant for a local development database.</dd>
+                </div>
+              </dl>
+            </details>
           </div>
           <div class="featured-links">
             <a href="https://github.com/mcglenn07/wp-diagnostics-mcp" target="_blank" rel="noopener">View on GitHub →</a>
@@ -178,15 +231,37 @@
             <div class="featured-head">
               <h3>Resume Autofill for Gravity Forms</h3>
             </div>
-            <p class="card-meta">WordPress Plugin · AI/LLM</p>
+            <p class="card-meta">WordPress Plugin · AI/LLM · Independent project</p>
             <p>
-              A Gravity Forms add-on that autofills a job application form from an uploaded resume,
-              live, before submission — extracts resume text, sends it to OpenAI's Structured
-              Outputs API against a strict JSON schema, and maps it onto the form owner's fields.
+              A Gravity Forms add-on that autofills a job application form from an uploaded resume
+              before the form is submitted. It extracts the resume text, sends it to OpenAI's
+              Structured Outputs API against a strict JSON schema, and maps the result onto the
+              form owner's fields for the applicant to review and edit.
             </p>
             <div class="card-tags">
               <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
             </div>
+            <details class="case-study">
+              <summary>Case study: flow, safeguards, limits</summary>
+              <dl>
+                <div>
+                  <dt>Problem and users</dt>
+                  <dd>Applicants retype their resume into every application form. The admin picks the resume upload field and maps resume data to the form's own fields; the applicant then reviews everything before submitting.</dd>
+                </div>
+                <div>
+                  <dt>Design decisions</dt>
+                  <dd>Fields not found in the resume come back as null rather than a guess. The model is told to treat resume text as untrusted data and ignore any instructions inside it. The applicant must tick a consent box before any file is sent, the API key is stored encrypted, and a per-IP daily limit caps cost because the parse endpoint runs before Gravity Forms' own spam protection.</dd>
+                </div>
+                <div>
+                  <dt>Testing</dt>
+                  <dd>Exercised end to end through the real front end with a live OpenAI key and my own resume PDF, plus WP-CLI scripts that call the add-on's PHP entry points directly.</dd>
+                </div>
+                <div>
+                  <dt>Known limits</dt>
+                  <dd>Only Single Line Text fields can receive work history, education, skills, and certifications, as one summary line each. Scanned, image-only PDFs have no extractable text and fall back to manual entry. Resume text is sent to OpenAI, which the consent notice discloses. No hosted demo; the code is on GitHub.</dd>
+                </div>
+              </dl>
+            </details>
           </div>
           <div class="featured-links">
             <a href="https://github.com/mcglenn07/gf-resume-autofill" target="_blank" rel="noopener">View on GitHub →</a>
@@ -257,9 +332,11 @@
           <h3>Batas AI</h3>
           <p class="card-meta">AI Web App</p>
           <p>
-            A Philippine-law chatbot that grounds every answer in live web search instead of
-            training data, to avoid fabricated statutes and citations. Enforces a strict
-            no-invented-citations rule and renders real source links beneath each streamed answer.
+            A Philippine-law chatbot built on OpenAI's web search tool, so answers can draw on
+            current sources instead of training data alone. The prompt tells the model to search
+            for specific provisions and case citations and never to invent them; source links
+            parsed from the search results are shown beneath each streamed answer. That is a
+            prompt-level safeguard, and the citations are not independently verified.
           </p>
           <div class="card-tags">
             <span>Python</span><span>OpenAI API</span><span>Gradio</span>
@@ -277,17 +354,17 @@
           <h3>Bar Quiz Tool</h3>
           <p class="card-meta">Full-Stack Web App · AI/LLM</p>
           <p>
-            Built for my own JD bar review: a custom pipeline extracts question/answer content
-            straight from bar-exam reviewer PDFs into Supabase, then serves it as a quiz with
-            LLM-graded essay answers (Groq) alongside auto-graded multiple choice, tracking
-            progress per subject.
+            A practice tool for Philippine bar-exam reviewer questions. A Python pipeline extracts
+            question and answer content from reviewer PDFs into Supabase, and a Next.js app serves
+            it as a quiz with Google sign-in and per-user progress. Multiple choice is auto-graded;
+            written answers are graded by an LLM (gpt-oss-120b via Groq) against the reviewer's
+            suggested answer. Four reviewer books are loaded so far.
           </p>
           <div class="card-tags">
             <span>Next.js</span><span>Supabase</span><span>Python</span><span>FastAPI</span><span>Groq</span>
           </div>
           <div class="card-links">
             <a href="https://bar-quiz-tool.vercel.app/" target="_blank" rel="noopener">Try it live →</a>
-            <a href="https://github.com/mcglenn07/bar-quiz-tool" target="_blank" rel="noopener">View on GitHub →</a>
           </div>
         </article>
 
@@ -330,10 +407,11 @@
           <h3>Doktrina</h3>
           <p class="card-meta">AI Web App</p>
           <p>
-            Generates a structured legal case digest (Title, Facts, Issue, Ruling, Doctrine) from a
-            Philippine Supreme Court case URL. A custom scraper strips footnotes and citations and
-            works around a broken SSL chain on the government's own e-library domain; the prompt is
-            tuned to quote the Court's own language and preserve named doctrines.
+            Turns a Philippine Supreme Court decision URL (SC E-Library, LawPhil, or Chan Robles)
+            into a structured case digest: Title, Facts, Issue, Ruling, and Doctrine. The scraper
+            keeps only the decision text up to the dispositive portion, and the prompt is tuned to
+            quote the Court's own language, preserve named multi-part tests, and say so when a
+            doctrine is not expressly stated.
           </p>
           <div class="card-tags">
             <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>BeautifulSoup</span>
@@ -354,10 +432,10 @@
           <h3>Lipad AI</h3>
           <p class="card-meta">AI Web App</p>
           <p>
-            An airline chat assistant that resolves flight-price questions through OpenAI function
-            calling wired to Duffel's Flights API instead of a hardcoded price table. Runs against
-            Duffel's sandbox, so the assistant discloses simulated pricing; a per-visitor rate
-            limiter guards the API keys on this public demo.
+            An airline chat assistant that answers flight-price questions through OpenAI function
+            calling wired to Duffel's Flights API instead of a hardcoded price table. It runs
+            against Duffel's sandbox, so all prices are simulated and the assistant says so; an
+            in-memory per-visitor rate limiter protects the API keys on this public demo.
           </p>
           <div class="card-tags">
             <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>Duffel API</span>
@@ -775,7 +853,7 @@
           </div>
           <ul>
             <li>Built and maintained WordPress websites and Unbounce landing pages for small business clients, handling page layout, custom styling, and deployment.</li>
-            <li>Since Jun 2026: Self-directed transition into AI &amp; LLM engineering, designing and shipping an MCP diagnostics server while continuing freelance WordPress work.</li>
+            <li>Since Jun 2026: self-directed work on the independent applied-AI projects listed above, alongside continued freelance WordPress work.</li>
           </ul>
         </div>
       </div>
@@ -828,10 +906,10 @@
         <button class="tags-toggle" type="button" aria-expanded="false" aria-controls="tags-teamwork"></button>
       </div>
       <div class="skill-group">
-        <h3>Certifications</h3>
+        <h3>Courses (Udemy)</h3>
         <ul class="tags cert-tags">
-          <li>Creating WordPress Plugins The Right Way — Udemy</li>
-          <li>JavaScript Complete Grandmaster Course 2026 — Udemy</li>
+          <li>Creating WordPress Plugins The Right Way</li>
+          <li>JavaScript Complete Grandmaster Course 2026</li>
         </ul>
       </div>
     </div>
@@ -876,16 +954,6 @@
         </div>
       </div>
       <div class="testimonial">
-        <p>“His technical skills were excellent, but what really set him apart was how he
-        paired that with genuine care and compassion for customers, who consistently came away
-        happy. He was the kind of guy everyone wanted to work with — any team will be lucky to
-        have him.”</p>
-        <div class="testimonial-author">
-          <span class="author-name">Matt Andrews</span>
-          <span class="author-role">Web &amp; Business Enthusiast, Gravity Wiz</span>
-        </div>
-      </div>
-      <div class="testimonial">
         <p>“Glenn consistently demonstrated a strong work ethic, excellent problem-solving
         skills, and a genuine commitment to helping both customers and teammates succeed. He
         contributes positively to team culture and can be trusted to deliver high-quality work.
@@ -896,34 +964,49 @@
         </div>
       </div>
       <div class="testimonial">
-        <p>“I had the chance to work with Glenn for more than six years across two
-        companies, Gravity PDF and Gravity Wiz, and I've always appreciated the kind of
-        teammate he is. Glenn brings a lot of care to his work — he's curious, dependable, and
-        always willing to learn or step in where he can help. Any team would be lucky to have
-        Glenn on board.”</p>
+        <p>“His technical skills were excellent, but what really set him apart was how he
+        paired that with genuine care and compassion for customers, who consistently came away
+        happy. He was the kind of guy everyone wanted to work with — any team will be lucky to
+        have him.”</p>
         <div class="testimonial-author">
-          <span class="author-name">Dan Gabriel A. Tabifranca</span>
-          <span class="author-role">Marketer &amp; Community Organizer, formerly Gravity PDF &amp; Gravity Wiz</span>
-        </div>
-      </div>
-      <div class="testimonial">
-        <p>“He was always at the top of the class and exhibited excellence with whatever
-        subject we were learning. Glenn's perseverance and focus, paired with his intellect and
-        curiosity, let him overcome adversity without struggle. He's reliable and would serve as
-        an asset to any team he's a part of.”</p>
-        <div class="testimonial-author">
-          <span class="author-name">Bijan Natividad</span>
-          <span class="author-role">Frontend Developer, TEG</span>
+          <span class="author-name">Matt Andrews</span>
+          <span class="author-role">Web &amp; Business Enthusiast, Gravity Wiz</span>
         </div>
       </div>
     </div>
+    <details class="more-recs">
+      <summary>More recommendations</summary>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p>“I had the chance to work with Glenn for more than six years across two
+          companies, Gravity PDF and Gravity Wiz, and I've always appreciated the kind of
+          teammate he is. Glenn brings a lot of care to his work — he's curious, dependable, and
+          always willing to learn or step in where he can help. Any team would be lucky to have
+          Glenn on board.”</p>
+          <div class="testimonial-author">
+            <span class="author-name">Dan Gabriel A. Tabifranca</span>
+            <span class="author-role">Marketer &amp; Community Organizer, formerly Gravity PDF &amp; Gravity Wiz</span>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p>“He was always at the top of the class and exhibited excellence with whatever
+          subject we were learning. Glenn's perseverance and focus, paired with his intellect and
+          curiosity, let him overcome adversity without struggle. He's reliable and would serve as
+          an asset to any team he's a part of.”</p>
+          <div class="testimonial-author">
+            <span class="author-name">Bijan Natividad</span>
+            <span class="author-role">Frontend Developer, TEG</span>
+          </div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
 <section id="contact" class="section alt">
   <div class="container contact">
     <h2>Get in Touch</h2>
-    <p class="lead">Open to software engineering and technical support opportunities.</p>
+    <p class="lead">Open to software engineering roles building applied AI and WordPress tooling, and to technical support engineering opportunities.</p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:mcglenntangalin07@gmail.com">mcglenntangalin07@gmail.com</a>
       <a class="btn btn-outline" href="tel:+639177790394">+63 917 779 0394</a>
