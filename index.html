@@ -280,19 +280,25 @@
               <dl>
                 <div>
                   <dt>Problem and users</dt>
-                  <dd>Applicants retype their resume into every application form. The admin picks the resume upload field and maps resume data to the form's own fields; the applicant then reviews everything before submitting.</dd>
+                  <dd>Job applicants repeatedly enter information already included in their resumes. This add-on prefills application fields from an uploaded resume so applicants can review and edit their details before submitting. The form administrator chooses the resume upload field and maps the extracted information to the form’s fields.</dd>
                 </div>
                 <div>
                   <dt>Design decisions</dt>
-                  <dd>Fields not found in the resume come back as null rather than a guess. The model is told to treat resume text as untrusted data and ignore any instructions inside it. The applicant must tick a consent box before any file is sent, the API key is stored encrypted, and a per-IP daily limit caps cost because the parse endpoint runs before Gravity Forms' own spam protection.</dd>
+                  <dd>
+                    <p>Missing information returns as <code>null</code> rather than a guess. The model is instructed to treat resume text as untrusted data and ignore instructions embedded within it.</p>
+                    <p>Applicants must select a consent checkbox before a file is sent for processing, and the API key is stored encrypted. Because parsing happens before Gravity Forms’ spam protection runs, a daily per-IP request limit helps control API costs.</p>
+                  </dd>
                 </div>
                 <div>
                   <dt>Testing</dt>
-                  <dd>Exercised end to end through the real front end with a live OpenAI key and my own resume PDF, plus WP-CLI scripts that call the add-on's PHP entry points directly.</dd>
+                  <dd>I tested the complete flow through the applicant-facing form using a live OpenAI API key and my own resume PDF. Additional WP-CLI scripts exercised the add-on’s PHP entry points directly.</dd>
                 </div>
                 <div>
                   <dt>Known limits</dt>
-                  <dd>Only Single Line Text fields can receive work history, education, skills, and certifications, as one summary line each. Scanned, image-only PDFs have no extractable text and fall back to manual entry. Resume text is sent to OpenAI, which the consent notice discloses. No hosted demo; the code is on GitHub.</dd>
+                  <dd>
+                    <p>Work history, education, skills, and certifications can only populate Single Line Text fields, with each category condensed into one summary line. Scanned, image-only PDFs have no extractable text, so applicants must enter their details manually.</p>
+                    <p>Resume text is sent to OpenAI, as disclosed in the consent notice. There is no hosted demo; the source code is available on GitHub.</p>
+                  </dd>
                 </div>
               </dl>
             </details>
