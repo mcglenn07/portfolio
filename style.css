@@ -530,6 +530,43 @@ code, .mono { font-family: var(--mono); }
 .featured-links a { font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--green); white-space: nowrap; }
 .featured-links a:hover { color: var(--cyan-bright); }
 
+.projects-note { color: var(--muted); font-size: 14px; max-width: 70ch; margin: 0; }
+
+.case-study { margin-top: 16px; border-top: 1px solid var(--border); }
+.case-study summary,
+.more-recs summary {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cyan);
+  cursor: pointer;
+  padding: 12px 0;
+  list-style: none;
+}
+.case-study summary::-webkit-details-marker,
+.more-recs summary::-webkit-details-marker { display: none; }
+.case-study summary::before,
+.more-recs summary::before { content: '+'; display: inline-block; width: 1.4em; color: var(--green); }
+.case-study[open] summary::before,
+.more-recs[open] summary::before { content: '\2212'; }
+.case-study summary:hover,
+.more-recs summary:hover { color: var(--cyan-bright); }
+.case-study dl { margin: 4px 0 6px; display: grid; gap: 16px; }
+.case-study dt {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--purple);
+  margin-bottom: 3px;
+}
+.case-study dd { margin: 0; color: var(--muted); font-size: 14px; max-width: 68ch; }
+.case-study code { font-size: 12.5px; color: var(--cyan-bright); }
+
+.more-recs { margin-top: 24px; }
+.more-recs .testimonials-grid { margin-top: 12px; }
+
 @media (max-width: 640px) {
   .featured-card { grid-template-columns: 36px 1fr; }
   .featured-links { grid-column: 1 / 3; grid-row: auto; flex-direction: row; align-items: center; margin-top: 10px; }
