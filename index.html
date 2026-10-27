@@ -56,7 +56,7 @@
         <h1>Mc Glenn Tangalin</h1>
         <p class="tagline" id="heroTagline">7+ years of WordPress/PHP development and technical support. Now building
       Python applications with retrieval-augmented generation, OpenAI function calling, and MCP, including an
-      evaluated Philippine-law assistant and a WordPress diagnostics server.</p>
+      Philippine-law assistant with documented evaluation results and a WordPress diagnostics server.</p>
         <div class="hero-links">
           <a class="btn btn-primary" href="#projects">View Projects</a>
           <a class="btn btn-outline" href="assets/Glenn-Tangalin-Resume.pdf" target="_blank">Download Résumé</a>
@@ -134,8 +134,8 @@
             <p class="card-meta">RAG Web App · AI/LLM · Independent project</p>
             <p>
               Answers questions about the Philippine Anti-VAWC Act (RA 9262) and its 2004
-              implementing rules. Generates section-cited answers and filters citations against the
-              sections it retrieved. On my 52-question evaluation set, the expected section was in
+              implementing rules, with citations to relevant sections that are filtered against the
+              sections it retrieved. On my 52-question evaluation set, all expected sections were in
               the top 5 results for 42 of 45 answerable questions, and 7 of 7 out-of-scope questions
               were refused. Legal information only, not legal advice.
             </p>
@@ -143,7 +143,7 @@
               <span>Python</span><span>RAG</span><span>OpenAI API</span><span>pgvector</span><span>PostgreSQL</span><span>Gradio</span>
             </div>
             <details class="case-study">
-              <summary>Case study: results, design decision, limits</summary>
+              <summary>Read case study</summary>
               <dl>
                 <div>
                   <dt>Problem and users</dt>
@@ -153,26 +153,26 @@
                   <dt>How it works</dt>
                   <dd>
                     <p>I converted the source PDF into reviewed Markdown, divided the text into 134 section-based chunks, and embedded them with <code>text-embedding-3-large</code> in pgvector on Supabase.</p>
-                    <p>For each question, the app retrieves the top five sections and adds corresponding sections from a manually verified, 59-pair crosswalk between the Act and its rules. <code>gpt-4.1-mini</code> then generates an answer with citations. A final code check removes citations to sections that were not retrieved.</p>
+                    <p>For each question, the app retrieves the top five sections and adds corresponding sections from a manually verified mapping of 59 pairs of corresponding sections in the Act and its rules. <code>gpt-4.1-mini</code> then generates an answer with citations. A final code check removes citations to sections that were not retrieved.</p>
                   </dd>
                 </div>
                 <div>
                   <dt>What I verified</dt>
-                  <dd>I manually checked all 59 crosswalk pairs and all 52 evaluation questions against the source PDF. A second model review prompted five corrections before the final evaluation run.</dd>
+                  <dd>I manually checked all 59 crosswalk pairs and all 52 evaluation questions against the source PDF. A review by a second model identified five issues that I corrected before the final evaluation run.</dd>
                 </div>
                 <div>
                   <dt>Design decisions</dt>
                   <dd>
                     <p>Chunks follow the documents’ section boundaries and begin with their citation and heading. In comparison runs, adding those prefixes improved top-five retrieval from 39 to 42 of 45 answerable questions.</p>
-                    <p>A cheaper embedding model, smaller chunks, and overlapping chunks produced no measurable difference on this evaluation set.</p>
+                    <p>A cheaper embedding model, smaller chunks, and overlapping chunks produced no measurable difference on this evaluation set. I kept <code>text-embedding-3-large</code> for consistency; the smaller model is a possible cost-saving change.</p>
                   </dd>
                 </div>
                 <div>
-                  <dt>Results and what they mean</dt>
+                  <dt>Evaluation results</dt>
                   <dd>
                     <p>The evaluation covered 15 questions about the Act, 12 about the rules, 13 requiring both, five follow-ups, and seven outside the documents’ scope.</p>
                     <ul>
-                      <li>Retrieval: All expected sections appeared in the top five for 42 of 45 answerable questions, with a mean reciprocal rank of 0.86.</li>
+                      <li>Retrieval: All expected sections appeared in the top five for 42 of 45 answerable questions, with a mean reciprocal rank of 0.86. Both figures are measured on the ranking before the crosswalk sections are added.</li>
                       <li>Out-of-scope handling: All seven questions outside the documents’ coverage were refused.</li>
                       <li>Incorrect refusals: One of the 45 answerable questions was wrongly refused.</li>
                     </ul>
@@ -207,20 +207,20 @@
             <p class="card-meta">MCP Server · Independent project</p>
             <p>
               Gives an AI assistant diagnostic access to a local WordPress installation through
-              seven tools that run WP-CLI commands or read the site's log files: plugin and
-              PHP/WordPress info, debug-log tailing, and a SELECT-only SQL tool. Two tools are built
-              for Gravity Forms support work: pulling error-flagged entries and tailing an add-on's
-              log by name.
+              seven tools that run WP-CLI commands or read the site's log files. They report plugin and
+              PHP/WordPress information, read the debug log, and run SELECT-only SQL queries. Two tools
+              are built for Gravity Forms support work: one finds entries with error notes, and one
+              reads the latest lines of an add-on's log.
             </p>
             <div class="card-tags">
               <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
             </div>
             <details class="case-study">
-              <summary>Case study: tools, design decision, and scope</summary>
+              <summary>Read case study</summary>
               <dl>
                 <div>
                   <dt>Problem and users</dt>
-                  <dd>Gravity Forms support often begins with the same checks: plugin versions, PHP and WordPress configuration, debug logs, add-on logs, and failed notifications or feeds. I built this server so an AI assistant can gather those details directly, reducing the manual back-and-forth involved in troubleshooting.</dd>
+                  <dd>Gravity Forms support often begins with the same checks: plugin versions, PHP and WordPress configuration, debug logs, add-on logs, and failed notifications or feeds. I built this server so an AI assistant can gather those details directly, to reduce the manual back-and-forth involved in troubleshooting.</dd>
                 </div>
                 <div>
                   <dt>The seven tools</dt>
@@ -270,14 +270,14 @@
             <p>
               A Gravity Forms add-on that autofills a job application form from an uploaded resume
               before the form is submitted. It extracts the resume text, sends it to OpenAI's
-              Structured Outputs API against a strict JSON schema, and maps the result onto the
-              form owner's fields for the applicant to review and edit.
+              Structured Outputs API against a strict JSON schema, and fills the fields
+              configured by the form administrator for the applicant to review and edit.
             </p>
             <div class="card-tags">
               <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
             </div>
             <details class="case-study">
-              <summary>Case study: flow, safeguards, limits</summary>
+              <summary>Read case study</summary>
               <dl>
                 <div>
                   <dt>Problem and users</dt>
@@ -286,18 +286,18 @@
                 <div>
                   <dt>Design decisions</dt>
                   <dd>
-                    <p>Missing information returns as <code>null</code> rather than a guess. The model is instructed to treat resume text as untrusted data and ignore instructions embedded within it.</p>
+                    <p>The model is instructed to return <code>null</code> for missing information rather than infer a value, and to treat resume text as untrusted data and ignore instructions embedded within it.</p>
                     <p>Applicants must select a consent checkbox before a file is sent for processing, and the API key is stored encrypted. Because parsing happens before Gravity Forms’ spam protection runs, a daily per-IP request limit helps control API costs.</p>
                   </dd>
                 </div>
                 <div>
                   <dt>Testing</dt>
-                  <dd>I tested the complete flow through the applicant-facing form using a live OpenAI API key and my own resume PDF. Additional WP-CLI scripts exercised the add-on’s PHP entry points directly.</dd>
+                  <dd>I tested the complete flow through the applicant-facing form using the live OpenAI API and my own resume PDF. Additional WP-CLI scripts exercised the add-on’s PHP entry points directly.</dd>
                 </div>
                 <div>
                   <dt>Known limits</dt>
                   <dd>
-                    <p>Work history, education, skills, and certifications can only populate Single Line Text fields, with each category condensed into one summary line. Scanned, image-only PDFs have no extractable text, so applicants must enter their details manually.</p>
+                    <p>Work history, education, skills, and certifications can only populate Single Line Text fields, with each category condensed into one summary line. The add-on does not support OCR, so applicants using image-only PDFs must enter their details manually.</p>
                     <p>Resume text is sent to OpenAI, as disclosed in the consent notice. There is no hosted demo; the source code is available on GitHub.</p>
                   </dd>
                 </div>
@@ -319,21 +319,20 @@
             </div>
             <p class="card-meta">Local AI Pipeline · AI/LLM · Independent project</p>
             <p>
-              Turns long lecture recordings and PDFs into structured study notes on one Apple
-              Silicon Mac. For each distinct slide it keeps the verbatim slide text, the timestamped
-              speech, and a flag on every on-screen line the lecturer never said aloud. Files dropped
-              into a folder are processed unattended: 45 lectures ran in about 2 h 45 min with
-              0 failures.
+              Turns lecture recordings and PDFs into structured study notes on an Apple Silicon Mac.
+              It combines extracted slide text with timestamped transcripts and flags slide text that
+              appears not to have been spoken. Files added to a watched folder are processed
+              automatically.
             </p>
             <div class="card-tags">
               <span>Python</span><span>MLX</span><span>Whisper</span><span>Qwen3.5 VLM</span><span>PySceneDetect</span><span>launchd</span><span>Claude Code</span>
             </div>
             <details class="case-study">
-              <summary>Case study: pipeline, design decisions, results, limits</summary>
+              <summary>Read case study</summary>
               <dl>
                 <div>
                   <dt>Problem and users</dt>
-                  <dd>Lecture slides contain citations, figures, and definitions that lecturers often skip aloud. A transcript alone misses that material. I built this tool for my own lectures to turn recordings into notes that preserve both spoken explanations and slide content, while keeping the recordings on my Mac.</dd>
+                  <dd>Lecture slides contain citations, figures, and definitions that lecturers often skip aloud. A transcript alone misses that material. I built this tool for the lectures I study to turn recordings into notes that preserve both spoken explanations and slide content, while keeping the recordings on my Mac.</dd>
                 </div>
                 <div>
                   <dt>How it works</dt>
@@ -347,7 +346,7 @@
                   <dd>
                     <p>I patched mlx-whisper to apply the subject glossary to every 30-second window, rather than only the first. I selected the OCR model through a scored comparison using 18 slides and 173 manually checked lines, then cross-checked every citation against on-device Apple Vision OCR.</p>
                     <p>Slides are deduplicated twice: first visually, then by OCR text. The process favors retaining a duplicate over losing a slide. Each stage skips processing when its output already exists, allowing individual stages to rerun independently.</p>
-                    <p>For the merge step, Sonnet matched Opus in a one-lecture trial, so I used the lower-cost model for the full merge.</p>
+                    <p>For the merge step, I found Sonnet's output comparable in quality to Opus's in a one-lecture trial, so I used the lower-cost model for the full merge.</p>
                   </dd>
                 </div>
                 <div>
@@ -355,13 +354,13 @@
                   <dd>
                     <p>On a 1-hour, 52-minute recording, I checked every Apple Vision line across all 298 detected scenes against the final slide set and found no missed slides.</p>
                     <p>Of eight citation-mismatch flags, seven were Apple Vision errors. One caught a real model error: an inferred citation for a line cut off at the edge of the frame.</p>
-                    <p>After the merge, a separate script confirmed that all 3,165 slide lines appeared verbatim in the notes and found no invented citations.</p>
+                    <p>After each merge batch, a separate script confirmed that all 3,165 slide lines appeared in the notes (using fuzzy string matching) and that the citation numbers in the notes matched the raw extracted files.</p>
                   </dd>
                 </div>
                 <div>
-                  <dt>Results and what they mean</dt>
+                  <dt>Evaluation results</dt>
                   <dd>
-                    <p>The pipeline processed 45 lectures unattended in about 2 hours and 45 minutes—an average of 3 minutes and 39 seconds per lecture—with no failures. A 1-hour, 52-minute recording at 1782 × 924 resolution took 54–57 minutes, with OCR accounting for 77% of processing time.</p>
+                    <p>The pipeline processed 45 lectures unattended in about 2 hours and 45 minutes—an average of 3 minutes and 39 seconds per lecture—with no failures. A 1-hour, 52-minute recording at 1782 × 924 resolution took 54–57 minutes, with OCR accounting for 77% of processing time. The 45 batch lectures were shorter, lower-resolution recordings, and OCR time grows with resolution and slide count.</p>
                     <p>The merge updated 46 existing notes without creating new ones. The pipeline logic is covered by 127 tests. These results reflect my own lecture collection, not a general benchmark.</p>
                   </dd>
                 </div>
@@ -496,7 +495,7 @@
             An airline chat assistant that answers flight-price questions through OpenAI function
             calling wired to Duffel's Flights API instead of a hardcoded price table. It runs
             against Duffel's sandbox, so all prices are simulated and the assistant says so; an
-            in-memory per-visitor rate limiter protects the API keys on this public demo.
+            per-visitor rate limit helps control API usage on this public demo.
           </p>
           <div class="card-tags">
             <span>Python</span><span>OpenAI API</span><span>Gradio</span><span>Duffel API</span>
@@ -803,7 +802,7 @@
             <span>JavaScript</span><span>Web Audio API</span><span>CSS</span>
           </div>
           <div class="card-links">
-            <a href="https://mcglenn07.github.io/class-timer/" target="_blank" rel="noopener">Play →</a>
+            <a href="https://mcglenn07.github.io/class-timer/" target="_blank" rel="noopener">Open timer →</a>
             <a href="https://github.com/mcglenn07/class-timer" target="_blank" rel="noopener">View on GitHub →</a>
           </div>
         </article>
@@ -905,10 +904,10 @@
           </div>
           <ul>
             <li>Resolved support tickets for 1,000+ customers across the Gravity Wiz product suite — WordPress, PHP, and Gravity Forms issues, restoring functionality fast.</li>
-            <li>Root-caused issues across WordPress environments, plugin conflicts, caching layers, and custom code for reliable long-term fixes.</li>
+            <li>Investigated and resolved root causes across WordPress environments, plugin conflicts, caching layers, and custom code.</li>
             <li>Partnered with engineering to reproduce defects, document findings, and validate fixes.</li>
             <li>Maintained a zero-ticket backlog through tight prioritization and fast turnaround.</li>
-            <li>Held a 90%+ CSAT rating across Gravity Forms, APIs, payment gateways, and third-party plugin workflows.</li>
+            <li>Maintained a customer satisfaction score above 90% across Gravity Forms, APIs, payment gateways, and third-party plugin workflows.</li>
           </ul>
         </div>
       </div>
