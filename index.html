@@ -198,6 +198,83 @@
 
         <article class="featured-card">
           <div class="featured-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 10v10"/><path d="m13 15 2 2 3-4"/></svg>
+          </div>
+          <div>
+            <div class="featured-head">
+              <h3>Schema Fixer</h3>
+            </div>
+            <p class="card-meta">Python CLI and Local Demo · AI/LLM · Independent project</p>
+            <p>
+              Repairs CSV and JSON exports whose headers, date formats, or labels don't match the
+              schema an import expects. It reports each mismatch, proposes a mapping using either
+              header matching or OpenAI, checks the proposal in code, and applies it only after a
+              person approves it. Rows that still fail go to a quarantine file with a plain-English
+              reason. On 20 test cases I reviewed, OpenAI's mappings produced the expected output in
+              15, compared with 8 for header matching alone.
+            </p>
+            <div class="card-tags">
+              <span>Python</span><span>OpenAI API</span><span>Pydantic</span><span>pandas</span><span>Gradio</span><span>GitHub Actions</span>
+            </div>
+            <details class="case-study">
+              <summary>Read case study</summary>
+              <dl>
+                <div>
+                  <dt>Problem and users</dt>
+                  <dd>Data imports fail when an export uses different column names, date formats, or labels from the schema it is loaded into, and support teams often fix each file by hand. I built this tool to find the mismatches, propose a repair a person can review, and keep the valid rows instead of rejecting the whole file.</dd>
+                </div>
+                <div>
+                  <dt>How it works</dt>
+                  <dd>
+                    <p>The tool profiles each column (inferred type, share of blank values, and three sample values with emails and phone numbers masked) and lists every mismatch with the target schema: missing or extra columns, likely renames, wrong types, unknown labels, and invalid formats.</p>
+                    <p>A provider then proposes a mapping. The baseline matches header names with rapidfuzz. The OpenAI option receives only the target schema and the masked column profiles, never the file’s rows, and returns a mapping through Structured Outputs. Each target field must use one of eight fixed transforms, such as <code>rename</code>, <code>combine</code>, <code>parse_date</code>, or <code>map_values</code>, so the model chooses operations instead of writing code.</p>
+                    <p>Code checks the mapping’s structure and validates sample rows with Pydantic. After a person approves it, the mapping is saved with a fingerprint of the schema and the source columns. Applying it never calls a model: valid rows are written in the schema’s types, and invalid rows go to <code>quarantine.csv</code> with their row numbers and reasons.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Design decisions</dt>
+                  <dd>
+                    <p>A few invalid values should not flag an otherwise correct mapping. Rows that fail validation are reported as warnings and quarantined. A draft is flagged only for structural errors, or when every checked row fails on the same field, which usually points to the wrong transform.</p>
+                    <p>Approved mappings are reused without another model call, so repeat files from the same source produce the same output at no API cost.</p>
+                    <p>The local Gradio demo defaults to the baseline, so it runs without an API key. One sample is built so header matching cannot solve it: the baseline flags the draft, while OpenAI joins the first- and last-name columns and reads US-format dates.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>What I verified</dt>
+                  <dd>
+                    <p>I reviewed the expected mapping and quarantined rows for all 20 test cases before any results were counted. An independent model review flagged five cases as ambiguous; I resolved those questions, such as whether numeric text should become numbers and what labels like “Completed” and “P1” mean, before scoring.</p>
+                    <p>In one case, the export omits a status column that, according to the case description, is always “resolved.” A provider cannot see that description, so leaving the field unmapped counts as correct; a person supplies the value at approval.</p>
+                    <p>More than 200 offline tests cover detection, transforms, approval, application, and scoring, and run on GitHub Actions with network access disabled.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Evaluation results</dt>
+                  <dd>
+                    <p>The evaluation used 20 synthetic cases, each with three rows, across three schemas: customers, orders, and support tickets. OpenAI (<code>gpt-6-luna</code>, low reasoning, one attempt per case) was compared with the header-matching baseline.</p>
+                    <ul>
+                      <li>Output match: OpenAI produced the reviewed output, with the same clean values and the same quarantined rows, in 15 of 20 cases. The baseline did so in 8.</li>
+                      <li>Quarantine prediction: OpenAI identified exactly the expected rows and fields in 16 of 20 cases; the baseline did so in 8.</li>
+                      <li>Missing fields: both providers left all three fields that had no possible source unmapped instead of inventing values.</li>
+                      <li>Cost and speed: the 20 OpenAI calls cost about $0.005 in total, with a median response time of 4.6 seconds.</li>
+                    </ul>
+                    <p>A stricter comparison that also requires the same transform gives OpenAI 2 of 20, because 13 of its correct cases used equivalent transforms, such as parsing a date already in ISO format. I added output matching after the run and rescored the saved responses without new API calls.</p>
+                    <p>In three of OpenAI’s five misses, a single invalid value led it to discard an entire column instead of mapping the valid values and quarantining the invalid row.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Known limits</dt>
+                  <dd>
+                    <p>Twenty three-row synthetic cases and a single run are not a production benchmark. Output match is measured only on the supplied rows; two transforms that agree there can still differ on other data.</p>
+                    <p>Masking covers emails and phone numbers, not names or other personal data, so headers and masked samples are sent to OpenAI when that provider is selected. Files are loaded fully into memory, JSON input must be a flat array of objects, and the demo runs locally only. The source code is not yet public.</p>
+                  </dd>
+                </div>
+              </dl>
+            </details>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
           </div>
           <div>
