@@ -116,14 +116,14 @@
       <button class="filter-pill active" type="button" role="tab" id="tab-featured" aria-controls="panel-featured" aria-selected="true" tabindex="0" data-panel="featured">★ Featured</button>
       <button class="filter-pill" type="button" role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="false" tabindex="-1" data-panel="ai">AI &amp; LLM</button>
       <button class="filter-pill" type="button" role="tab" id="tab-wp" aria-controls="panel-wp" aria-selected="false" tabindex="-1" data-panel="wp">WordPress Plugins</button>
-      <button class="filter-pill" type="button" role="tab" id="tab-other" aria-controls="panel-other" aria-selected="false" tabindex="-1" data-panel="other">Other Projects</button>
+      <button class="filter-pill" type="button" role="tab" id="tab-other" aria-controls="panel-other" aria-selected="false" tabindex="-1" data-panel="other">Apps &amp; Tools</button>
       <button class="filter-pill" type="button" role="tab" id="tab-kids" aria-controls="panel-kids" aria-selected="false" tabindex="-1" data-panel="kids">🎈 For My Kids</button>
     </div>
 
     <div class="filter-panel" id="panel-featured" role="tabpanel" aria-labelledby="tab-featured" data-panel="featured">
       <div class="featured-grid">
 
-        <article class="featured-card">
+        <article class="featured-card" id="feat-ra9262">
           <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M9 21h6"/></svg>
           </div>
@@ -196,7 +196,7 @@
           </div>
         </article>
 
-        <article class="featured-card">
+        <article class="featured-card" id="feat-schema-fixer">
           <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 10v10"/><path d="m13 15 2 2 3-4"/></svg>
           </div>
@@ -276,7 +276,7 @@
           </div>
         </article>
 
-        <article class="featured-card">
+        <article class="featured-card" id="feat-wp-diagnostics">
           <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
           </div>
@@ -338,7 +338,7 @@
           </div>
         </article>
 
-        <article class="featured-card">
+        <article class="featured-card" id="feat-resume-autofill">
           <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 12v6"/><path d="M9.5 14.5 12 12l2.5 2.5"/></svg>
           </div>
@@ -389,7 +389,7 @@
           </div>
         </article>
 
-        <article class="featured-card">
+        <article class="featured-card" id="feat-lecture-notes">
           <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M10 8.5v5l4-2.5z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
           </div>
@@ -464,6 +464,112 @@
 
     <div class="filter-panel" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai" data-panel="ai" hidden>
       <div class="projects-grid">
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M9 21h6"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>RA 9262 Assistant</h3>
+          <p class="card-meta">RAG Web App · AI/LLM</p>
+          <p>
+            Answers questions about the Philippine Anti-VAWC Act (RA 9262) and its 2004 implementing rules, with citations to relevant sections that are filtered against the sections it retrieved. On my 52-question evaluation set, all expected sections were in the top 5 results for 42 of 45 answerable questions, and 7 of 7 out-of-scope questions were refused. Legal information only, not legal advice.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>RAG</span><span>OpenAI API</span><span>pgvector</span><span>PostgreSQL</span><span>Gradio</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-ra9262" data-open-feature="feat-ra9262">Read case study →</a>
+            <a href="https://huggingface.co/spaces/mcglenn07/VAWC-RAG" target="_blank" rel="noopener">Try it live →</a>
+            <a href="https://github.com/mcglenn07/vawc-rag" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 10v10"/><path d="m13 15 2 2 3-4"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>Schema Fixer</h3>
+          <p class="card-meta">Python CLI and Local Demo · AI/LLM</p>
+          <p>
+            Repairs CSV and JSON exports whose headers, date formats, or labels don't match the schema an import expects. It reports each mismatch, proposes a mapping using either header matching or OpenAI, checks the proposal in code, and applies it only after a person approves it. Rows that still fail go to a quarantine file with a plain-English reason. On 20 test cases I reviewed, OpenAI's mappings produced the expected output in 15, compared with 8 for header matching alone.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>OpenAI API</span><span>Pydantic</span><span>pandas</span><span>Gradio</span><span>GitHub Actions</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-schema-fixer" data-open-feature="feat-schema-fixer">Read case study →</a>
+            <a href="https://github.com/mcglenn07/schema-fixer" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>WP Diagnostics MCP</h3>
+          <p class="card-meta">MCP Server</p>
+          <p>
+            Gives an AI assistant diagnostic access to a local WordPress installation through seven tools that run WP-CLI commands or read the site's log files. They report plugin and PHP/WordPress information, read the debug log, and run SELECT-only SQL queries. Two tools are built for Gravity Forms support work: one finds entries with error notes, and one reads the latest lines of an add-on's log.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>MCP</span><span>WP-CLI</span><span>WordPress</span><span>Gravity Forms</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-wp-diagnostics" data-open-feature="feat-wp-diagnostics">Read case study →</a>
+            <a href="https://github.com/mcglenn07/wp-diagnostics-mcp" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M10 8.5v5l4-2.5z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>Lecture Notes Pipeline</h3>
+          <p class="card-meta">Local AI Pipeline · AI/LLM</p>
+          <p>
+            Turns lecture recordings and PDFs into structured study notes on an Apple Silicon Mac. It combines extracted slide text with timestamped transcripts and flags slide text that appears not to have been spoken. Files added to a watched folder are processed automatically.
+          </p>
+          <div class="card-tags">
+            <span>Python</span><span>MLX</span><span>Whisper</span><span>Qwen3.5 VLM</span><span>PySceneDetect</span><span>launchd</span><span>Claude Code</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-lecture-notes" data-open-feature="feat-lecture-notes">Read case study →</a>
+            <a href="https://github.com/mcglenn07/lecture-notes" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 12v6"/><path d="M9.5 14.5 12 12l2.5 2.5"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>Resume Autofill for Gravity Forms</h3>
+          <p class="card-meta">WordPress Plugin · AI/LLM</p>
+          <p>
+            A Gravity Forms add-on that autofills a job application form from an uploaded resume before the form is submitted. It extracts the resume text, sends it to OpenAI's Structured Outputs API against a strict JSON schema, and fills the fields configured by the form administrator for the applicant to review and edit.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-resume-autofill" data-open-feature="feat-resume-autofill">Read case study →</a>
+            <a href="https://github.com/mcglenn07/gf-resume-autofill" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
         <article class="card">
           <div class="card-icon">
@@ -591,6 +697,27 @@
 
     <div class="filter-panel" id="panel-wp" role="tabpanel" aria-labelledby="tab-wp" data-panel="wp" hidden>
       <div class="projects-grid">
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 12v6"/><path d="M9.5 14.5 12 12l2.5 2.5"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>Resume Autofill for Gravity Forms</h3>
+          <p class="card-meta">WordPress Plugin · AI/LLM</p>
+          <p>
+            A Gravity Forms add-on that autofills a job application form from an uploaded resume before the form is submitted. It extracts the resume text, sends it to OpenAI's Structured Outputs API against a strict JSON schema, and fills the fields configured by the form administrator for the applicant to review and edit.
+          </p>
+          <div class="card-tags">
+            <span>PHP</span><span>WordPress</span><span>Gravity Forms</span><span>OpenAI API</span><span>JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-resume-autofill" data-open-feature="feat-resume-autofill">Read case study →</a>
+            <a href="https://github.com/mcglenn07/gf-resume-autofill" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
 
         <article class="card">
           <div class="card-icon">

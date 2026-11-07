@@ -137,6 +137,20 @@ filterBar.addEventListener("keydown", (e) => {
   }
 });
 
+// "Read case study" links on category cards jump to the Featured panel,
+// open that project's case study, and scroll to it.
+document.querySelectorAll("[data-open-feature]").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const card = document.getElementById(link.dataset.openFeature);
+    if (!card) return;
+    activatePill(document.getElementById("tab-featured"));
+    const details = card.querySelector("details.case-study");
+    if (details) details.open = true;
+    card.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
 // Skills: groups over 6 tags start collapsed behind a "+N more" toggle.
 document.querySelectorAll(".tags-toggle").forEach((btn) => {
   const list = document.getElementById(btn.getAttribute("aria-controls"));
