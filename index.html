@@ -196,6 +196,65 @@
           </div>
         </article>
 
+        <article class="featured-card" id="feat-legal-reading-aid">
+          <div class="featured-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3"/><path d="M10 12H3"/><path d="M10 18H3"/><circle cx="17" cy="15" r="3"/><path d="m21 19-1.9-1.9"/></svg>
+          </div>
+          <div>
+            <div class="featured-head">
+              <h3>Legal Reading Aid</h3>
+            </div>
+            <p class="card-meta">macOS and Windows App · AI/LLM · Independent project</p>
+            <p>
+              Explains a legal term in place, in any app: I point at a word in a case and press a shortcut. On-device OCR reads the word and its sentence, and Claude Haiku explains what it means there under Philippine law, in 2 to 4 seconds. Lookups build a local glossary with CSV export, and my corrections answer without a model call. On my eval of 8 Latin and Spanish terms of art, Haiku scored 8/8; two local models scored 5/8 and 2/8.
+            </p>
+            <div class="card-tags">
+              <span>Swift</span><span>SwiftUI</span><span>AppKit</span><span>Vision OCR</span><span>ScreenCaptureKit</span><span>Claude API</span><span>C#</span><span>WPF</span>
+            </div>
+            <details class="case-study">
+              <summary>Read case study</summary>
+              <dl>
+                <div>
+                  <dt>Problem and users</dt>
+                  <dd>I read Philippine Supreme Court decisions for my Juris Doctor studies, and stopping to copy a term into a chat breaks my focus. Look Up and select-to-translate tools did not work for me because my reading app highlights text on select. Latin and Spanish terms of art also carry specific legal meanings, so a wrong answer is worse than none. I built the Mac app for myself first, then a Windows version for other people.</dd>
+                </div>
+                <div>
+                  <dt>How it works</dt>
+                  <dd>
+                    <p>A global shortcut captures a 1400 × 220 pt region around the pointer with ScreenCaptureKit, and Apple Vision reads the text. The app picks the nearest word, rebuilds the sentence (treating <code>G.R. No.</code>, <code>Art.</code>, and <code>v.</code> as abbreviations, not sentence ends), and sends the word and sentence to Claude Haiku 5.5. A JSON schema forces the reply into term, meaning, and synonym. A floating card near the pointer shows the result without taking focus from the reading app.</p>
+                    <p>Each lookup is saved to a local glossary that exports to CSV. If I correct an answer, a corrected multi-word term answers on its own the next time, without a model call. Pointing at one word of a phrase returns the whole phrase, for example “de jure” rather than “jure”.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Design decisions</dt>
+                  <dd>
+                    <p>I read the screen with OCR instead of text selection or the Accessibility API, because it works in any app, including scanned PDFs. I chose a point-and-press shortcut over an always-on overlay, which would have meant months of fragile work and constant CPU use.</p>
+                    <p>Claude Haiku is the only model. Leaving its thinking on cost no extra time (2.05 s against 2.44 s with it off) and avoided two wrong meanings. Haiku sometimes returned an empty meaning, and a JSON schema cannot forbid that, so the prompt asks for a full answer and the app retries once; after the change there were no blanks in 32 answers. I also dropped model-generated pronunciations, which were wrong or garbled in about 7 of 32 answers, and use a bundled list of 315 terms instead.</p>
+                    <p>A code review found that a correction for the single word “consideration” silently overrode other uses of that word. One-word corrections now go to Claude, which says whether the sentence uses the same sense.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Evaluation results</dt>
+                  <dd>
+                    <p>I tested 8 Philippine legal terms, including Latin and Spanish terms of art. Claude Haiku 5.5 explained all 8 correctly in 1.1 to 2.6 seconds each, at about $0.06 per 1,000 lookups. A local gemma3:12b scored 5/8 and invented a Civil Code article number. A local llama3.2 scored 2/8.</p>
+                    <p>I wrote the terms and scored the answers myself, so this is a small test of my own use, not a benchmark.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Known limits</dt>
+                  <dd>
+                    <p>I have not yet run the planned two-week field test, so there are no daily-use numbers. OCR can misread small or noisy text, and small text on Windows is an open risk.</p>
+                    <p>The word and its sentence leave the device and go to Anthropic, so the app needs an API key and Screen Recording permission. The Windows version is on the Microsoft Store; the Mac version is a personal build. The source repositories are private.</p>
+                  </dd>
+                </div>
+              </dl>
+            </details>
+          </div>
+          <div class="featured-links">
+            <a href="https://apps.microsoft.com/detail/9pmvqvk471mt" target="_blank" rel="noopener">Get it on the Microsoft Store →</a>
+          </div>
+        </article>
+
         <article class="featured-card" id="feat-schema-fixer">
           <div class="featured-icon">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 10v10"/><path d="m13 15 2 2 3-4"/></svg>
@@ -490,6 +549,27 @@
         <article class="card">
           <div class="card-head">
             <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3"/><path d="M10 12H3"/><path d="M10 18H3"/><circle cx="17" cy="15" r="3"/><path d="m21 19-1.9-1.9"/></svg>
+            </div>
+            <span class="card-badge card-badge-featured">★ Featured</span>
+          </div>
+          <h3>Legal Reading Aid</h3>
+          <p class="card-meta">macOS and Windows App · AI/LLM</p>
+          <p>
+            Explains a legal term in place, in any app: I point at a word in a case and press a shortcut. On-device OCR reads the word and its sentence, and Claude Haiku explains what it means there under Philippine law, in 2 to 4 seconds. Lookups build a local glossary with CSV export, and my corrections answer without a model call. On my eval of 8 Latin and Spanish terms of art, Haiku scored 8/8; two local models scored 5/8 and 2/8.
+          </p>
+          <div class="card-tags">
+            <span>Swift</span><span>SwiftUI</span><span>AppKit</span><span>Vision OCR</span><span>ScreenCaptureKit</span><span>Claude API</span><span>C#</span><span>WPF</span>
+          </div>
+          <div class="card-links">
+            <a href="#feat-legal-reading-aid" data-open-feature="feat-legal-reading-aid">Read case study →</a>
+            <a href="https://apps.microsoft.com/detail/9pmvqvk471mt" target="_blank" rel="noopener">Get it on the Microsoft Store →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-icon">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 10v10"/><path d="m13 15 2 2 3-4"/></svg>
             </div>
             <span class="card-badge card-badge-featured">★ Featured</span>
@@ -586,23 +666,6 @@
           <div class="card-links">
             <a href="https://huggingface.co/spaces/mcglenn07/sipi-check" target="_blank" rel="noopener">Try the demo →</a>
             <a href="https://github.com/mcglenn07/sipi-check" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3"/><path d="M10 12H3"/><path d="M10 18H3"/><circle cx="17" cy="15" r="3"/><path d="m21 19-1.9-1.9"/></svg>
-          </div>
-          <h3>Legal Reading Aid</h3>
-          <p class="card-meta">macOS and Windows App · AI/LLM</p>
-          <p>
-            Explains a legal term in place, in any app: I point at a word in a case and press a shortcut. On-device OCR reads the word and its sentence, and Claude Haiku explains what it means there under Philippine law, in 2 to 4 seconds. Lookups build a local glossary with CSV export, and my corrections answer without a model call. On my eval of 8 Latin and Spanish terms of art, Haiku scored 8/8; two local models scored 5/8 and 2/8.
-          </p>
-          <div class="card-tags">
-            <span>Swift</span><span>SwiftUI</span><span>AppKit</span><span>Vision OCR</span><span>ScreenCaptureKit</span><span>Claude API</span><span>C#</span><span>WPF</span>
-          </div>
-          <div class="card-links">
-            <a href="https://apps.microsoft.com/detail/9pmvqvk471mt" target="_blank" rel="noopener">Get it on the Microsoft Store →</a>
           </div>
         </article>
 
