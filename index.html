@@ -448,76 +448,6 @@
           </div>
         </article>
 
-        <article class="featured-card" id="feat-lecture-notes">
-          <div class="featured-icon">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M10 8.5v5l4-2.5z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-          </div>
-          <div>
-            <div class="featured-head">
-              <h3>Lecture Notes Pipeline</h3>
-            </div>
-            <p class="card-meta">Local AI Pipeline · AI/LLM · Independent project</p>
-            <p>
-              Turns lecture recordings and PDFs into structured study notes on an Apple Silicon Mac.
-              It combines extracted slide text with timestamped transcripts and flags slide text that
-              appears not to have been spoken. Files added to a watched folder are processed
-              automatically.
-            </p>
-            <div class="card-tags">
-              <span>Python</span><span>MLX</span><span>Whisper</span><span>Qwen3.5 VLM</span><span>PySceneDetect</span><span>launchd</span><span>Claude Code</span>
-            </div>
-            <details class="case-study">
-              <summary>Read case study</summary>
-              <dl>
-                <div>
-                  <dt>Problem and users</dt>
-                  <dd>Lecture slides contain citations, figures, and definitions that lecturers often skip aloud. A transcript alone misses that material. I built this tool for the lectures I study to turn recordings into notes that preserve both spoken explanations and slide content, while keeping the recordings on my Mac.</dd>
-                </div>
-                <div>
-                  <dt>How it works</dt>
-                  <dd>
-                    <p>A launchd agent watches an Inbox folder and starts a pipeline with each stage running in its own subprocess. The pipeline extracts audio, transcribes it with mlx-whisper and a subject glossary, and detects slides with PySceneDetect using a small proxy video with the webcam overlay masked. It then reads each slide with Qwen3.5-9B through mlx-vlm, aligns speech with slides, uses rapidfuzz to identify content shown but not spoken, and produces one Markdown file per lecture.</p>
-                    <p>A Claude Code slash command merges that file into existing Obsidian notes and flags uncertainties it cannot resolve from the slide frames.</p>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Design decisions</dt>
-                  <dd>
-                    <p>I patched mlx-whisper to apply the subject glossary to every 30-second window, rather than only the first. I selected the OCR model through a scored comparison using 18 slides and 173 manually checked lines, then cross-checked every citation against on-device Apple Vision OCR.</p>
-                    <p>Slides are deduplicated twice: first visually, then by OCR text. The process favors retaining a duplicate over losing a slide. Each stage skips processing when its output already exists, allowing individual stages to rerun independently.</p>
-                    <p>For the merge step, I found Sonnet's output comparable in quality to Opus's in a one-lecture trial, so I used the lower-cost model for the full merge.</p>
-                  </dd>
-                </div>
-                <div>
-                  <dt>What I verified</dt>
-                  <dd>
-                    <p>On a 1-hour, 52-minute recording, I checked every Apple Vision line across all 298 detected scenes against the final slide set and found no missed slides.</p>
-                    <p>Of eight citation-mismatch flags, seven were Apple Vision errors. One caught a real model error: an inferred citation for a line cut off at the edge of the frame.</p>
-                    <p>After each merge batch, a separate script confirmed that all 3,165 slide lines appeared in the notes (using fuzzy string matching) and that the citation numbers in the notes matched the raw extracted files.</p>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Evaluation results</dt>
-                  <dd>
-                    <p>The pipeline processed 45 lectures unattended in about 2 hours and 45 minutes—an average of 3 minutes and 39 seconds per lecture—with no failures. A 1-hour, 52-minute recording at 1782 × 924 resolution took 54–57 minutes, with OCR accounting for 77% of processing time. The 45 batch lectures were shorter, lower-resolution recordings, and OCR time grows with resolution and slide count.</p>
-                    <p>The merge updated 46 existing notes without creating new ones. The pipeline logic is covered by 127 tests. These results reflect my own lecture collection, not a general benchmark.</p>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Known limits</dt>
-                  <dd>
-                    <p>The pipeline is Mac-only because it depends on MLX, Apple Vision, and launchd. OCR accounts for most of the processing time. Detection of content shown but not spoken deliberately favors over-flagging: for a lecturer who skimmed dense slides, it flagged 57% of lines.</p>
-                    <p>Transcription, slide detection, and OCR run locally. The merge step uses Claude Code, so extracted text and any slide frames it checks are sent to Claude. The recordings themselves stay on the Mac. There is no hosted demo.</p>
-                  </dd>
-                </div>
-              </dl>
-            </details>
-          </div>
-          <div class="featured-links">
-            <a href="https://github.com/mcglenn07/lecture-notes" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-
       </div>
     </div>
 
@@ -606,27 +536,6 @@
           <div class="card-links">
             <a href="#feat-wp-diagnostics" data-open-feature="feat-wp-diagnostics">Read case study →</a>
             <a href="https://github.com/mcglenn07/wp-diagnostics-mcp" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-head">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M10 8.5v5l4-2.5z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-            </div>
-            <span class="card-badge card-badge-featured">★ Featured</span>
-          </div>
-          <h3>Lecture Notes Pipeline</h3>
-          <p class="card-meta">Local AI Pipeline · AI/LLM</p>
-          <p>
-            Turns lecture recordings and PDFs into structured study notes on an Apple Silicon Mac. It combines extracted slide text with timestamped transcripts and flags slide text that appears not to have been spoken. Files added to a watched folder are processed automatically.
-          </p>
-          <div class="card-tags">
-            <span>Python</span><span>MLX</span><span>Whisper</span><span>Qwen3.5 VLM</span><span>PySceneDetect</span><span>launchd</span><span>Claude Code</span>
-          </div>
-          <div class="card-links">
-            <a href="#feat-lecture-notes" data-open-feature="feat-lecture-notes">Read case study →</a>
-            <a href="https://github.com/mcglenn07/lecture-notes" target="_blank" rel="noopener">View on GitHub →</a>
           </div>
         </article>
 
